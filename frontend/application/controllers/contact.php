@@ -14,7 +14,6 @@ class Contact extends MY_Controller {
 
 	public function create()
 	{
-    $this->data['recaptcha'] = $this->recaptcha->get_html();
-		$this->load->view('registro',$this->data);
+	  
 	}
 }

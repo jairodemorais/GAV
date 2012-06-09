@@ -36,10 +36,11 @@ class Register extends MY_Controller {
 	  $this->form_validation->set_rules('email', 'E-mail', 'required');
 	  $this->form_validation->set_rules('password', 'Password', 'required');
 	  
+	  $this->form_validation->set_message('required', 'Debes ingresar un %s. ');
+	  
 	  if ($this->form_validation->run() === FALSE || $this->check_captcha($this->input->post('recaptcha_response_field')) == FALSE)
 	  {
-		  echo "Debe completar todos los campos obligatorios.";
-		  $this->load->view('registro',array('recaptcha'=>$this->recaptcha->get_html()));
+		  $this->load->view('registro',array('recaptcha'=>$this->recaptcha->get_html(), 'errorMsg' => "Captcha invalido. Prueba nuevamente."));
 	  }
 	  else
 	  {

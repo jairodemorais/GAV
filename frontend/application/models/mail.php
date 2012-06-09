@@ -6,8 +6,8 @@ class Mail extends CI_Model {
     $config['protocol'] = 'smtp';
     $config['smtp_host'] = 'ssl://smtp.googlemail.com';
     $config['smtp_port'] = 465;
-    $config['smtp_user'] = 'jairodemorais';
-    $config['smtp_pass'] = 'JairoDemian*^';
+    $config['smtp_user'] = 'userGmail';
+    $config['smtp_pass'] = 'claveGmail';
     $config['mailtype']  = 'html'; 
     $config['charset']   = 'iso-8859-1';
     $this->load->library('email', $config);
