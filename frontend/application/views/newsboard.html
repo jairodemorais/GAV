@@ -1,0 +1,261 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>GAV</title>
+<link href="css/estilos.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="js/jquery-1.6.4.min.js"></script>
+<script>
+	$(document).ready(function(){
+		$('li.margen_izq_cat').hover(
+			function() { $('ul', this).css('display', 'block'); },
+			function() { $('ul', this).css('display', 'none'); });
+	});
+
+</script>
+</head>
+
+<body class="fondo_gris_repeat">
+<div id="contenedor_prin" >
+
+  <div id="contenedor_central"> 
+  
+      <div id="contenido_newsboard">
+  
+          <div id="centro_newsboard">
+            
+          <div id="cont_botonera">
+    
+        <ul id="redes_soc">
+        <li><a href="#" class="icon_face"></a></li>
+        <li><a href="#" class="icon_twitter"></a></li>
+        </ul>
+        
+        <ul id="botonera_portada">
+        <li><a href="#" class="botones_home">Home</a></li>
+        <li><a href="#" class="botones_home">Nosotros</a></li>
+        <li><a href="#" class="botones_home">Registro</a></li>
+        <li><a href="#contacto" class="botones_home btn_contacto">Consultas</a></li>
+        <li><p class="user_welcome">Bienvenido, <b> USUARIO! </b></p></li>
+        <li><a href="#" class="botones_home">Mi Perfil</a></li>
+        <li><a href="#"><img src="img/logout.gif" /></a></li>
+        </ul>  
+    
+  		  </div>
+            
+            
+            <div id="buscador_newsboard">
+            
+            <img src="img/logo_news.gif" />
+            
+            <div id="cont_buscar_news">         
+            <form action="" method="post">
+            <p class="txt_search_news">Comenzá tu búsqueda aquí mismo, o utiliza el menú de categorías:</p>
+            <input name="" type="text" class="search_home"/>
+            <input name="imageField2" type="image" src="img/btn/buscar.gif" border="0" class="btn_buscar_home">
+            </form>
+            </div>
+            
+            </div>    
+            
+            <ul id="categorias_home">
+            
+            <li class="margen_izq_cat">
+            <a href="#" class="cats_home cat_magenta">Categoría 1</a>
+            
+                    <ul>
+                    <li><a href="#" class="submenu_home">Subcategoría 1</a></li>
+                    <li><a href="#" class="submenu_home">Subcategoría 2</a></li>
+                    <li><a href="#" class="submenu_home">Subcategoría 3</a></li>
+                    <li><a href="#" class="submenu_home">Subcategoría 4</a></li>
+                    </ul>
+            </li>
+            
+            
+            <li class="margen_izq_cat">
+            <a href="#" class="cats_home cat_verde">Categoría 2</a>
+            
+                    <ul>
+                    <li><a href="#" class="submenu_home">Subcategoría 1</a></li>
+                    <li><a href="#" class="submenu_home">Subcategoría 2</a></li>
+                    <li><a href="#" class="submenu_home">Subcategoría 3</a></li>
+                    <li><a href="#" class="submenu_home">Subcategoría 4</a></li>
+                    </ul>
+            </li>
+            
+            
+            <li class="margen_izq_cat"><a href="#" class="cats_home cat_violeta">Categoría 3</a></li>
+            <li class="margen_izq_cat"><a href="#" class="cats_home cat_turquesa">Categoría 4</a></li>
+            
+            <li class="margen_izq_cat">
+            <a href="#" class="cats_home cat_naranja">Categoría 5</a>
+                   <ul>
+                    <li><a href="#" class="submenu_home">Subcategoría 1</a></li>
+                    <li><a href="#" class="submenu_home">Subcategoría 2</a></li>
+                    <li><a href="#" class="submenu_home">Subcategoría 3</a></li>
+                    <li><a href="#" class="submenu_home">Subcategoría 4</a></li>
+                    </ul>
+            </li>
+            
+            </ul>    
+            </div>
+  	
+  
+
+        <div id="contenedor_seccion">
+            
+          
+            
+            
+            <div id="lateral_derecho">
+                <ul id="lista_banners">
+                <li><img src="img/banner_right.jpg" /></li>
+                <li><img src="img/200x240.jpg" /></li>
+                <li><img src="img/anuncie_gav.jpg" /></li>
+                <li><img src="img/200x60.jpg" /></li>
+                </ul>
+            </div>
+            
+            
+                <div id="lateral_izquierdo" class="newsboard_lat">
+                
+                    
+                      <div id="cont_newsboard">
+                        <ul>
+                        <li><a href="#">TODOS</a></li>
+                        <li><a href="#">BENEFICIOS</a></li>
+                        <li><a href="#">NOVEDADES</a></li>
+                        <li><a href="#">CLASIFICADOS</a></li>  
+                        </ul>
+                    </div>
+        
+                    <ul id="lista_newsboard">
+                    
+                    <li class="noved_gris">
+                        <h1>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h1>
+                        <img src="img/thumbs_newsboard.jpg" width="119" height="79" class="thumb_noved"/>
+                        <p class="breve_descrip">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                        <p class="fecha_noved">Miercoles 12 de febrero de 2012</p>
+                        <a href="#" class="ampliar_noti"><img src="img/ampliar_noticia.png" /></a>
+                    </li>
+                    
+                    
+                    <li class="noved_blanco">                    
+                    	 <h1>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h1>
+                        <img src="img/thumbs_newsboard.jpg" width="119" height="79" class="thumb_noved"/>
+                        <p class="breve_descrip">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                        <p class="fecha_noved">Miercoles 12 de febrero de 2012</p>
+                        <a href="#" class="ampliar_noti"><img src="img/ampliar_noticia.png" /></a>                    
+                    </li>
+                    
+                    <li class="benefit_gris">
+                      <h1>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h1>
+                        <img src="img/thumbs_newsboard.jpg" width="119" height="79" class="thumb_noved"/>
+                        <p class="breve_descrip">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                        <p class="fecha_noved">Miercoles 12 de febrero de 2012</p>
+                        <a href="#" class="ampliar_noti"><img src="img/ampliar_noticia.png" /></a>
+                    </li>
+                    
+                    
+                    <li class="benefit_blanco">
+                        <h1>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h1>
+                        <img src="img/thumbs_newsboard.jpg" width="119" height="79" class="thumb_noved"/>
+                        <p class="breve_descrip">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                        <p class="fecha_noved">Miercoles 12 de febrero de 2012</p>
+                        <a href="#" class="ampliar_noti"><img src="img/ampliar_noticia.png" /></a>
+                    </li>
+                    
+                    <li class="clasif_gris">
+                       <h1>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h1>
+                        <img src="img/thumbs_newsboard.jpg" width="119" height="79" class="thumb_noved"/>
+                        <p class="breve_descrip">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                        <p class="fecha_noved">Miercoles 12 de febrero de 2012</p>
+                        <a href="#" class="ampliar_noti"><img src="img/ampliar_noticia.png" /></a>
+                    </li>
+                    
+                    <li class="clasif_blanco">
+                       <h1>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h1>
+                        <img src="img/thumbs_newsboard.jpg" width="119" height="79" class="thumb_noved"/>
+                        <p class="breve_descrip">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                        <p class="fecha_noved">Miercoles 12 de febrero de 2012</p>
+                        <a href="#" class="ampliar_noti"><img src="img/ampliar_noticia.png" /></a>
+                    </li>
+                    
+                    
+                    </ul>
+                    
+                    
+                    
+                        <div id="alinear_paginador">
+                        <ul id="paginador">
+                        <li><a href="#" class="pages_txt"> << Pagina anterior </a></li>	 
+                        <li><a href="#" class="pages_num">1</a></li>	 
+                        <li><a href="#" class="pages_num">2</a></li>	 
+                        <li><a href="#" class="pages_num">3</a></li>	 
+                        <li><a href="#" class="pages_num">4</a></li>
+                        <li><a href="#" class="pages_num">5</a></li>
+                        <li><a href="#" class="pages_txt"> Pagina siguiente >> </a></li>	
+                        </ul>          
+                        </div>
+            
+
+                </div>    
+    
+          
+      	  </div>
+        
+    </div>
+    
+</div>
+
+
+
+
+    <div id="bottom">
+        <div id="centrar_bottom">
+        <img src="img/logo_bottom.png" />
+        
+            <ul id="botonera_bottom">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Nosotros</a></li>
+            <li><a href="#">Registro</a></li>
+            <li><a href="#">Consultas</a></li>
+            </ul>  
+            
+            <ul id="botonera_bottom">
+            <li><a href="#">Categoria 01</a></li>
+            <li><a href="#">Categoria 02</a></li>
+            </ul>
+            
+            <ul id="botonera_bottom">
+            <li><a href="#">Categoria 03</a></li>
+            <li><a href="#">Categoria 04</a></li>
+            </ul>   
+             
+            <ul id="botonera_bottom" style="border:0;">
+            <li><a href="#">Categoria 05</a></li>
+            <li><a href="#">Categoria 06</a></li>
+            </ul>  
+            
+            
+            <ul id="redes_soc_bottom">
+            <li><p>Seguinos en:</p></li>
+            <li><a href="#" class="icon_face"></a></li>
+            <li><a href="#" class="icon_twitter"></a></li>
+            </ul>
+        
+        
+        
+        </div>
+    </div>
+
+
+
+
+
+
+<div class="corte"></div>
+</div>
+
+</body>
+</html>
