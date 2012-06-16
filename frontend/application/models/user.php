@@ -62,7 +62,6 @@ class User extends CI_Model {
 	public function get($mail)
 	{
 	  try {
-	    $this->load->database();
 	    $query = $this->db->get_where('usuarios',array('Mail'=>$mail));
       return $query->row_array();
     } catch (Exception $e) {

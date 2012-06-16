@@ -42,6 +42,8 @@ $route['default_controller'] = "home";
 $route['inicio'] = 'home';
 $route['registro'] = 'register';
 $route['perfil'] = "register/get";
+$route['buscar/([A-Z | -])'] = "artist/find/$1";
+$route['artista/(:num)'] = "artist/get/$1";
 $route['register/updateOrCreate'] = 'register/updateOrCreate';
 $route['404_override'] = '';
 

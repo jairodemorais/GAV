@@ -8,7 +8,6 @@ class Register extends MY_Controller {
     $this->load->model('user');
     $this->load->model('mail');
     $this->load->helper('form');
-    $this->load->library('form_validation');
     $this->load->library('recaptcha');
     $this->lang->load('recaptcha');
     $this->load->helper('url'); 
