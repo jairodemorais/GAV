@@ -75,6 +75,8 @@ class Artist extends MY_Controller {
   
   public function get($id)
   {
-    $this->load->view('detalle_artista');
+    $data['artista'] = $this->anuncio->get_artists_by_id($id);
+    $data['obras'] = $this->anuncio->get_obras($id);
+    $this->load->view('detalle_artista', $data);
   }
 }

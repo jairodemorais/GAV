@@ -13,7 +13,6 @@
 | If this is not set then CodeIgniter will guess the protocol, domain and
 | path to your installation.
 |
-
 $config['base_url']	= 'http://www.seemple.com.ar/gav/frontend/';*/
 $config['base_url']	= 'http://localhost:8888/GAV/frontend/';
 

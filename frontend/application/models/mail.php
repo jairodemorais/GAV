@@ -4,10 +4,10 @@ class Mail extends CI_Model {
   {
     $config['wordwrap'] = TRUE;
     $config['protocol'] = 'smtp';
-    $config['smtp_host'] = 'ssl://smtp.googlemail.com';
-    $config['smtp_port'] = 465;
-    $config['smtp_user'] = 'userGmail';
-    $config['smtp_pass'] = 'claveGmail';
+    $config['smtp_host'] = 'ssl://mail.seemple.com.ar';
+    $config['smtp_port'] = 25;
+    $config['smtp_user'] = 'gav@seemple.com.ar';
+    $config['smtp_pass'] = '123gav@123';
     $config['mailtype']  = 'html'; 
     $config['charset']   = 'iso-8859-1';
     $this->load->library('email', $config);
@@ -16,8 +16,8 @@ class Mail extends CI_Model {
   }
   PUBLIC function send_mail($template, $data)
   {
-    $this->email->from('jairodemorais@gmail.com', 'Jairo');  
-    $this->email->to('jairodemorais@gmail.com'); 
+    $this->email->from($config['smtp_user'], 'Gav');  
+    $this->email->to($data['mail']); 
     $this->email->subject('Email Test');
     $email = $this->load->view($template, $data, TRUE);
     $this->email->message($email);	

@@ -1,9 +1,9 @@
 <ul id="botonera_top">
-  <li><a href="inicio">Home</a></li>
+  <li><a href="<?php echo base_url();?>inicio">Home</a></li>
   <li><a href="#">Nosotros</a></li>
-  <li><a href="registro">Registro</a></li>
+  <li><a href="<?php echo base_url();?>registro">Registro</a></li>
   <li><a id="contactButton" href="#contacto">Consultas</a></li>
-  <li><a href="#">Newsletter</a></li>
+  <li><a href="<?php echo base_url();?>newsboard">Newsletter</a></li>
 </ul>  
 <div id="login_top">
   <?php if (isset($username)): ?>
