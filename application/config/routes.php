@@ -44,9 +44,10 @@ $route['registro'] = 'register';
 $route['perfil'] = "register/get";
 $route['buscar/([A-Z | -])'] = "artist/find/$1";
 $route['newsboard/(:num)'] = "newsboard/index";
-$route['artista/(:num)'] = "artist/get/$1";
+$route['artista/:any/(:num)'] = "artist/get/$1";
 $route['register/updateOrCreate'] = 'register/updateOrCreate';
 $route['noticia/(:num)'] = "newsboard/get/$1";
+$route['habilitar/(:num)'] = 'register/enable/$1';
 $route['404_override'] = '';
 
 

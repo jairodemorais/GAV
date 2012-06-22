@@ -25,7 +25,7 @@ function init() {
       if(result =='true'){
         window.location.reload();
       } else {
-        alert('Error');
+        alert('Error: El usuario ingresado no existe o aun no fue habilitado.');
       }
     });
   });

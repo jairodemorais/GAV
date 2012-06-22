@@ -41,10 +41,7 @@
         <div id="top_superior">
           <img src="<?php echo base_url();?>img/logo_negro.gif" class="logo_top"/>
           <div id="buscador_top">
-            <form action="" method="post">
-              <input name="" type="text" class="search_top"/>
-              <input name="imageField2" type="image" src="<?php echo base_url();?>img/btn/buscar_black.gif" border="0" class="btn_buscar_top">
-            </form>
+            <?php include('application/views/buscar_artistas_form.php') ?>
             <ul id="categorias_top">
               <li><a href="#">Categoría 1</a></li>
               <li>|</li>
@@ -73,7 +70,7 @@
             <?php if(isset($obras)): ?>
               <?php foreach ($obras as $res): ?>
                 <li>
-                  <img src="<?= base_url().$res->Nombre;?>" />
+                  <img src="<?= base_url()."backend/public_html/imagenes/obras/crop/".$res->Nombre;?>" />
                   <a href="#artista<?=$res->Id?>" class="link_artista btn_ampliar_obra"><?= $res->Nombre?></a>
                 </li>
               <?php endforeach;?>
@@ -85,10 +82,18 @@
           <p class="parrafo_izq pf_artista"><?= $artista['Descripcion']?></p>
           <div id="video_contenedor" class="multi_artista" name="<?=$artista['Video']?>"></div>
           <ul id="contacto_artista">
-            <li class="adress_prov"><?= $artista['Direccion']?> (<a href="#">ver mapa</a>)</li>
-            <li class="mail_prov"><?= $artista['Mail']?></li>
-            <li class="phone_prov"><?= $artista['Telefono']?></li>
-            <li class="web_prov"><?= $artista['Web']?></li>
+            <?php if(isset($artista['Direccion'])): ?>
+              <li class="adress_prov"><?= $artista['Direccion']?> (<a href="#">ver mapa</a>)</li>
+            <?php endif; ?>
+            <?php if(isset($artista['Mail'])): ?>
+              <li class="mail_prov"><?= $artista['Mail']?></li>
+            <?php endif; ?>
+            <?php if(isset($artista['Telefono'])): ?>
+              <li class="phone_prov"><?= $artista['Telefono']?></li>
+            <?php endif; ?>
+            <?php if(isset($artista['Web'])): ?>
+              <li class="web_prov"><?= $artista['Web']?></li>
+            <?php endif; ?>
           </ul>
         </div>
       </div>
@@ -128,7 +133,7 @@
       <!--  AMPLIAR OBRA  -->  
       <div style="display:none;">
         <div id="artista<?=$res->Id?>" class="div_obras">
-          <img src="<?php echo base_url().$res->Nombre;?>" />
+          <img src="<?php echo base_url()."backend/public_html/imagenes/obras/big/".$res->Nombre;?>" />
           <ul class="datos_obra">    
             <li> <h2><?= $res->Epigrafe ?></h2> </li>
             <li> <p class="caract_obra"><b>Técnica:</b> <?= $res->Tecnica ?></p> </li>

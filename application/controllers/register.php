@@ -47,18 +47,33 @@ class Register extends MY_Controller {
 	    if ($user == null)
 	    {
 	      $result = $this->user->create();
-	      $this->mail->send_mail('Mail_Nvo_Registro', array('mail' => addslashes($this->input->post('email')), 
-	                                                        'clave' => addslashes($this->input->post('password'))));
 	    } else {
 	      $result = $this->user->update();
 	    }
 		  if ($result == true)
 	    {
+	      $this->mail->send_mail('Mail_Nvo_Registro', array('mail' => addslashes($this->input->post('email')), 
+	                                                        'clave' => addslashes($this->input->post('password'))));
 	      $this->load->view('confirmacion');
 	    } else {
-	      $this->load->view('error');
+	      $data['errorMsg'] = "El usuario ya existe en nuestra base de datos, Pruebe con otro email.";
+	      $this->load->view('error', $data);
 	    }
 	  }
+  }
+  
+  public function enable($id)
+  {
+    try {
+      $result = $this->user->enable_user($id);
+      if($result != null)
+      {
+        $this->mail->send_mail('Mail_Confirmacion_Registro', array('mail' => addslashes($result['Mail'])));
+        echo "El usuario ".$result['Mail']." ha sido habilitado correctamente";
+      }
+    } catch (Exception $e) {
+      echo 'Caught exception: ',  $e->getMessage(), "\n";
+    } 
   }
   
   public function get()

@@ -3,11 +3,11 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <title>GAV</title>
-  <link href="<?php echo base_url();?>css/estilos.css" rel="stylesheet" type="text/css" />
+  <?php include('application/views/head.php') ?>
 </head>
 <body>
   <div id="contenedor_prin">
-    <div id="top">
+    <div id="top">            
       <div id="centrar_top">
         <div id="top_superior">
           <img src="<?php echo base_url();?>img/logo_negro.gif" class="logo_top"/>
@@ -30,7 +30,7 @@
           </div>
           <img src="<?php echo base_url();?>img/gav_black.jpg" class="gav_icon_top"/> 
         </div>
-        <?php include('application/views/nav2.php') ?>         
+        <?php include('application/views/nav2.php') ?>       
       </div>
     </div>
     <div id="contenedor_central"> 
@@ -48,43 +48,45 @@
           </ul>
         </div>
         <div id="lateral_izquierdo">
-          <h1 class="tit_principal">Muchas Gracias!</h1>
-          <h2 class="subtit_principal">Tus datos ha sido enviados correctamente. <br />
-            A la brevedad recibirás un correo confirmando tu solicitud de registro a la <strong>Guía de Artes visuales</strong>.</h2>
-            <h2 class="subtit_principal">Atentamente;<br />
-              El Equipo de <strong>GAV</strong></h2>
-            </div>
+          <h1 class="tit_principal">Lo sentimos,</h1>
+          <h2 class="subtit_principal">Ha ocurrido un error con los datos enviados. <br />
+            Intentalo nuevamente.</h2>
+            <?php if(isset($errorMsg)): ?>
+              <h3 class="subtit_principal"><?= $errorMsg ?></h3>
+            <?php endif; ?>
+            <h2 class="subtit_principal">&lt; <a href="javascript:window.history.location(-1);">Regresar</a></h2>
           </div>
         </div>
-        <div id="bottom">
-          <div id="centrar_bottom">
-            <img src="<?php echo base_url();?>img/logo_bottom.png" />
-            <ul id="botonera_bottom">
-              <li><a href="#">Home</a></li>
-              <li><a href="#">Nosotros</a></li>
-              <li><a href="#">Registro</a></li>
-              <li><a href="#">Consultas</a></li>
-            </ul>  
-            <ul id="botonera_bottom">
-              <li><a href="#">Categoria 01</a></li>
-              <li><a href="#">Categoria 02</a></li>
-            </ul>
-            <ul id="botonera_bottom">
-              <li><a href="#">Categoria 03</a></li>
-              <li><a href="#">Categoria 04</a></li>
-            </ul>   
-            <ul id="botonera_bottom" style="border:0;">
-              <li><a href="#">Categoria 05</a></li>
-              <li><a href="#">Categoria 06</a></li>
-            </ul>  
-            <ul id="redes_soc_bottom">
-              <li><p>Seguinos en:</p></li>
-              <li><a href="#" class="icon_face"></a></li>
-              <li><a href="#" class="icon_twitter"></a></li>
-            </ul>
-          </div>
+      </div>
+      <div id="bottom">
+        <div id="centrar_bottom">
+          <img src="<?php echo base_url();?>img/logo_bottom.png" />
+          <ul id="botonera_bottom">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Nosotros</a></li>
+            <li><a href="#">Registro</a></li>
+            <li><a href="#">Consultas</a></li>
+          </ul>  
+          <ul id="botonera_bottom">
+            <li><a href="#">Categoria 01</a></li>
+            <li><a href="#">Categoria 02</a></li>
+          </ul>
+          <ul id="botonera_bottom">
+            <li><a href="#">Categoria 03</a></li>
+            <li><a href="#">Categoria 04</a></li>
+          </ul>   
+          <ul id="botonera_bottom" style="border:0;">
+            <li><a href="#">Categoria 05</a></li>
+            <li><a href="#">Categoria 06</a></li>
+          </ul>  
+          <ul id="redes_soc_bottom">
+            <li><p>Seguinos en:</p></li>
+            <li><a href="#" class="icon_face"></a></li>
+            <li><a href="#" class="icon_twitter"></a></li>
+          </ul>
         </div>
-        <div class="corte"></div>
+      </div>
+      <div class="corte"></div>
     </div>
   </body>
-</html>
+  </html>

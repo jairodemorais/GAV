@@ -4,7 +4,7 @@ class Mail extends CI_Model {
   {
     $config['wordwrap'] = TRUE;
     $config['protocol'] = 'smtp';
-    $config['smtp_host'] = 'ssl://mail.seemple.com.ar';
+    $config['smtp_host'] = 'mail.seemple.com.ar';
     $config['smtp_port'] = 25;
     $config['smtp_user'] = 'gav@seemple.com.ar';
     $config['smtp_pass'] = '123gav@123';
@@ -16,7 +16,7 @@ class Mail extends CI_Model {
   }
   PUBLIC function send_mail($template, $data)
   {
-    $this->email->from($config['smtp_user'], 'Gav');  
+    $this->email->from($this->config->item('smtp_user'), 'Gav');  
     $this->email->to($data['mail']); 
     $this->email->subject('Email Test');
     $email = $this->load->view($template, $data, TRUE);

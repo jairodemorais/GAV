@@ -24,7 +24,7 @@ class Anuncio extends CI_Model {
   public function get_artists_by_value($value, $num, $offset)
   {
     try {
-      $this->db->where('Nombre =', $value);
+      $this->db->like('Nombre', $value);
       $this->db->or_like('Descripcion', $value);
       $this->db->or_like('Mail', $value);
       if ($num == 0 && $offset == 0) {
