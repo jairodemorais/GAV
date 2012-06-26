@@ -18,7 +18,7 @@
     <td><p><font size="2" face="Arial, Helvetica, sans-serif"><strong>Estimado/a,</strong></font></p>
     <p><font size="2" face="Arial, Helvetica, sans-serif">Estos son tus datos de acceso al portal:</font></p>
     <p><font size="2" face="Arial, Helvetica, sans-serif"><strong>- Usuario:</strong></font> <font size="2" face="Arial, Helvetica, sans-serif">fulano@fulano.com<br>
-    </font><strong><font size="2" face="Arial, Helvetica, sans-serif">- Password:</font></strong> <font size="2" face="Arial, Helvetica, sans-serif">123pepito</font></p>
+    </font><strong><font size="2" face="Arial, Helvetica, sans-serif">- Password:</font></strong> <font size="2" face="Arial, Helvetica, sans-serif">123pepita</font></p>
     <p><font size="2" face="Arial, Helvetica, sans-serif">Por favor, archivalos de manera segura.</font></p>
     <p><font size="2" face="Arial, Helvetica, sans-serif">Muchas gracias,</font><br>  
       <br>

@@ -70,7 +70,7 @@
             <?php if(isset($obras)): ?>
               <?php foreach ($obras as $res): ?>
                 <li>
-                  <img src="<?= base_url()."backend/public_html/imagenes/obras/crop/".$res->Nombre;?>" />
+                  <img width="135" height="105" src="<?= base_url()."backend/public_html/imagenes/obras/crop/".$res->Nombre;?>" />
                   <a href="#artista<?=$res->Id?>" class="link_artista btn_ampliar_obra"><?= $res->Nombre?></a>
                 </li>
               <?php endforeach;?>
