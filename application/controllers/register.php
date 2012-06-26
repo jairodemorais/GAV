@@ -44,16 +44,22 @@ class Register extends MY_Controller {
 	  else
 	  {
 	    $user = $this->user->get($this->input->post('id'));
+	    $action = "create";
 	    if ($user == null)
 	    {
 	      $result = $this->user->create();
 	    } else {
+	      $action = "update";
 	      $result = $this->user->update();
 	    }
 		  if ($result == true)
 	    {
-	      $this->mail->send_mail('Mail_Nvo_Registro', array('mail' => addslashes($this->input->post('email')), 
+	      if ($action == "create")
+	      {
+	        $this->mail->send_mail('Mail_Nvo_Registro', array('mail' => addslashes($this->input->post('email')), 
 	                                                        'clave' => addslashes($this->input->post('password'))));
+	        $this->mail->send_mail('Mail_admin', array('mail' => addslashes("jairodemorais@gmail.com"), 'user' => $user));
+        }
 	      $this->load->view('confirmacion');
 	    } else {
 	      $data['errorMsg'] = "El usuario ya existe en nuestra base de datos, Pruebe con otro email.";
