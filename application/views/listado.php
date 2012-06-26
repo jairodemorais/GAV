@@ -81,9 +81,9 @@
           <?php endif; ?>
           <ul id="listado_artistas">
             <?php if(isset($artists)): ?>
-              <?php foreach ($artists as $res): ?>
-                <li><img src="<?php echo base_url();?>img/galeria/thumbs.jpg" /><a href="<?php echo base_url();?>artista/<? echo  url_title ($res->Nombre); ?>/<?=$res->Id?>" class="link_artista"><?= $res->Nombre?></a></li>
-              <?php endforeach;?>
+              <?php $n=0; foreach ($artists as $res): ?>
+                <li><img width="135" height="105" src="<?php echo base_url();?>backend/public_html/imagenes/obras/thumb/<? echo $imgs[$n]; ?>" /><a href="<?php echo base_url();?>artista/<? echo  url_title ($res->Nombre); ?>/<?=$res->Id?>" class="link_artista"><?= $res->Nombre?></a></li>
+              <?php $n++; endforeach;?>
             <?php endif; ?>
           </ul>
           <div id="alinear_paginador">

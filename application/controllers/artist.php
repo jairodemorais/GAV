@@ -65,7 +65,10 @@ class Artist extends MY_Controller {
     $this->pagination->initialize($config);
     if($artists->num_rows() > 0)
     {
+	
       $data['artists'] = $artists->result();
+	  $data['imgs'] = $this->anuncio->get_images($data['artists']); // un array con 1 imagen de cada uno de los anuncios seleccionados.
+
     } else 
     {
       $data['errorMsg'] = "No se encontraron artistas para su busqueda. Vuelva a intentarlo";
