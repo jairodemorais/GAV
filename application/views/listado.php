@@ -82,7 +82,7 @@
           <ul id="listado_artistas">
             <?php if(isset($artists)): ?>
               <?php foreach ($artists as $res): ?>
-                <li><img src="<?php echo base_url();?>img/galeria/thumbs.jpg" /><a href="<?php echo base_url();?>artista/<?=$res->Nombre?>/<?=$res->Id?>" class="link_artista"><?= $res->Nombre?></a></li>
+                <li><img src="<?php echo base_url();?>img/galeria/thumbs.jpg" /><a href="<?php echo base_url();?>artista/<? echo  url_title ($res->Nombre); ?>/<?=$res->Id?>" class="link_artista"><?= $res->Nombre?></a></li>
               <?php endforeach;?>
             <?php endif; ?>
           </ul>
