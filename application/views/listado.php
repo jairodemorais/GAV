@@ -82,7 +82,7 @@
           <ul id="listado_artistas">
             <?php if(isset($artists)): ?>
               <?php $n=0; foreach ($artists as $res): ?>
-                <li><img width="135" height="105" src="<?php echo base_url();?>backend/public_html/imagenes/obras/thumb/<? echo $imgs[$n]; ?>" /><a href="<?php echo base_url();?>artista/<? echo  url_title ($res->Nombre); ?>/<?=$res->Id?>" class="link_artista"><?= $res->Nombre?></a></li>
+                <li><img width="135" height="105" src="<?php echo base_url();?>backend/public_html/imagenes/obras/thumb/<?=$res->Imagen?>" /><a href="<?php echo base_url();?>artista/<? echo  url_title ($res->Nombre); ?>/<?=$res->Id?>" class="link_artista"><?= $res->Nombre?></a></li>
               <?php $n++; endforeach;?>
             <?php endif; ?>
           </ul>
@@ -124,3 +124,4 @@
   </div>
 </body>
 </html>
+<?php $this->output->enable_profiler(TRUE);?>

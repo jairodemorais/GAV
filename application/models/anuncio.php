@@ -21,36 +21,18 @@ class Anuncio extends CI_Model {
     }
   }
 
-  public function get_images ($artists)
-  {
-    try {
-      $imgs = array();
-      foreach ($artists->result() as $row)
-      {
-        $this->db->select('Nombre');
-        $this->db->from('obras');
-        $this->db->where('Id_anuncio', $row->Id);
-        $this->db->where('Prioridad', '1');
-        $this->db->order_by('Id', 'DESC');
-        $this->db->limit(1,0);
-        $query = $this->db->get();
-        foreach  ( $query->result_array() as $row => $value) {
-          array_push ($imgs,$value);
-        }
-        $query->free_result();
-      }
-      return $imgs;
-    } catch (Exception $e) {
-      echo 'Caught exception: ',  $e->getMessage(), "\n";
-    }
-  }
-
   public function get_artists_by_value($value, $num, $offset)
   {
     try {
-      $this->db->like('Nombre', $value);
-      $this->db->or_like('Descripcion', $value);
-      $this->db->or_like('Mail', $value);
+	
+	  $this->db->select('anuncios.Nombre as Nombre, anuncios.Id as Id, anuncios.Mail as Mail, obras.Nombre as Imagen');
+	  $this->db->join('obras', 'anuncios.Id = obras.Id');
+      $this->db->like('anuncios.Nombre', $value);
+      $this->db->or_like('anuncios.Descripcion', $value);
+      $this->db->or_like('anuncios.Mail', $value);
+	  $this->db->group_by("anuncios.Nombre"); 
+	  $this->db->order_by("anuncios.Nombre", "ASC"); 
+
       if ($num == 0 && $offset == 0) {
         $query = $this->db->get('anuncios');
       } else
