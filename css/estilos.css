@@ -272,7 +272,7 @@ p.lista_p_largo {width:490px; padding:8px 0 8px 0; font-size:14px;}
 
 /*------------------------------- FANCYBOX LOGIN ----------------------------------*/
 .form_login { width:100%; float:left; height:300px; }
-.div_login {width:400px; background-color:#FFFFFF; padding:10px; overflow:hidden;}
+.div_login {width:400px; background-color:#FFFFFF; padding:10px; overflow:hidden; height:320px;}
 
 .div_login h1 {width:400px; padding-bottom:5px; font-size:30px; color:#ff319e; border-bottom:1px #CCCCCC solid;}
 
