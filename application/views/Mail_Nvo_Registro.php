@@ -33,10 +33,10 @@
   </tr>
   <tr>
    <td><table align="center" bgcolor="#ffffff" border="0" cellpadding="0" cellspacing="0" width="460">
-	  <tr>
-	   <td width="460"><img src="img/pie_mail.jpg" alt="" name="pie_mail" width="459" height="33" border="0" usemap="#pie_mailMap"></td>
-	  </tr>
-	</table></td>
+    <tr>
+     <td width="460"><img src="img/pie_mail.jpg" alt="" name="pie_mail" width="459" height="33" border="0" usemap="#pie_mailMap"></td>
+    </tr>
+  </table></td>
   </tr>
 </table>
 

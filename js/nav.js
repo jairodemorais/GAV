@@ -16,20 +16,30 @@ function init() {
     $('#lista_login_campos').attr("style","display:block;");
   });
 
-  $('#logIn').click(function() {                        
+  $('#logIn').click(function() {
     var username = $('#userName').val();
     var password = $('#password').val();
-    $.post('index.php/login/validateUser',
-    { 'usuario':username, 'clave' : password}, 
-    function(result){
-      if(result =='true'){
-        window.location.reload();
-      } else {
-        alert('Error: El usuario ingresado no existe o aun no fue habilitado.');
-      }
-    });
-  });
+    var email = $('forgotEmail').val();
 
+    if (!email) {
+      $.post('index.php/login/validateUser',
+      { 'usuario':username, 'clave' : password}, 
+      function(result){
+        if(result =='true'){
+          window.location.reload();
+        } else {
+          alert('Error: El usuario ingresado no existe o aun no fue habilitado.');
+        }
+      });
+    } else {
+      $.post('index.php/login/forgot',
+      { 'email': email}, 
+      function(result){
+          alert('Se ha enviado un email a su casilla de correo electronico');
+      });
+    }
+  });
+  
   $('#logOut').click(function(){
     $.post('index.php/login/logout',
     {}, 

@@ -12,8 +12,8 @@ class Contact extends MY_Controller {
     $this->load->helper('url'); 
   }
 
-	public function create()
-	{
-	  
-	}
+  public function create()
+  {
+    
+  }
 }

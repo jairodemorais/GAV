@@ -7,9 +7,9 @@
   <script type="text/javascript">
   $(document).ready(function() {
     $(".btn_ampliar_obra").fancybox({
-      'titlePosition'		: 'inside',
-      'transitionIn'		: 'none',
-      'transitionOut'		: 'none'
+      'titlePosition'    : 'inside',
+      'transitionIn'    : 'none',
+      'transitionOut'    : 'none'
     });
   });
   

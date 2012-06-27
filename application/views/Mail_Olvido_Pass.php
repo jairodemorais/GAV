@@ -17,8 +17,8 @@
   <tr>
     <td><p><font size="2" face="Arial, Helvetica, sans-serif"><strong>Estimado/a,</strong></font></p>
     <p><font size="2" face="Arial, Helvetica, sans-serif">Estos son tus datos de acceso al portal:</font></p>
-    <p><font size="2" face="Arial, Helvetica, sans-serif"><strong>- Usuario:</strong></font> <font size="2" face="Arial, Helvetica, sans-serif">fulano@fulano.com<br>
-    </font><strong><font size="2" face="Arial, Helvetica, sans-serif">- Password:</font></strong> <font size="2" face="Arial, Helvetica, sans-serif">123pepito</font></p>
+    <p><font size="2" face="Arial, Helvetica, sans-serif"><strong>- Usuario:</strong></font> <font size="2" face="Arial, Helvetica, sans-serif"><?php echo $mail; ?><br>
+    </font><strong><font size="2" face="Arial, Helvetica, sans-serif">- Password:</font></strong> <font size="2" face="Arial, Helvetica, sans-serif"><?php echo $clave;?></font></p>
     <p><font size="2" face="Arial, Helvetica, sans-serif">Por favor, archivalos de manera segura.</font></p>
     <p><font size="2" face="Arial, Helvetica, sans-serif">Muchas gracias,</font><br>  
       <br>
@@ -33,10 +33,10 @@
   </tr>
   <tr>
    <td><table align="center" bgcolor="#ffffff" border="0" cellpadding="0" cellspacing="0" width="460">
-	  <tr>
-	   <td width="460"><img src="img/pie_mail.jpg" alt="" name="pie_mail" width="459" height="33" border="0" usemap="#pie_mailMap"></td>
-	  </tr>
-	</table></td>
+    <tr>
+     <td width="460"><img src="img/pie_mail.jpg" alt="" name="pie_mail" width="459" height="33" border="0" usemap="#pie_mailMap"></td>
+    </tr>
+  </table></td>
   </tr>
 </table>
 

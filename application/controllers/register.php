@@ -13,59 +13,59 @@ class Register extends MY_Controller {
     $this->load->helper('url'); 
   }
 
-	public function index()
-	{
+  public function index()
+  {
     $this->data['recaptcha'] = $this->recaptcha->get_html();
-		$this->load->view('registro',$this->data);
-	}
-	
-	function check_captcha($val) {
-	  if ($this->recaptcha->check_answer($this->input->ip_address(),$this->input->post('recaptcha_challenge_field'),$val)) {
-	    return TRUE;
-	  } else {
-	    $this->form_validation->set_message('check_captcha',$this->lang->line('recaptcha_incorrect_response'));
-	    return FALSE;
-	  }
-	}
-	
-	public function updateOrCreate()
-	{
-	  $this->form_validation->set_rules('nombre', 'Nombre', 'required');
-	  $this->form_validation->set_rules('apellido', 'Apellido', 'required');
-	  $this->form_validation->set_rules('email', 'E-mail', 'required');
-	  $this->form_validation->set_rules('password', 'Password', 'required');
-	  
-	  $this->form_validation->set_message('required', 'Debes ingresar un %s. ');
-	  
-	  if ($this->form_validation->run() === FALSE || $this->check_captcha($this->input->post('recaptcha_response_field')) == FALSE)
-	  {
-		  $this->load->view('registro',array('recaptcha'=>$this->recaptcha->get_html(), 'errorMsg' => "Captcha invalido. Prueba nuevamente."));
-	  }
-	  else
-	  {
-	    $user = $this->user->get($this->input->post('id'));
-	    $action = "create";
-	    if ($user == null)
-	    {
-	      $result = $this->user->create();
-	    } else {
-	      $action = "update";
-	      $result = $this->user->update();
-	    }
-		  if ($result == true)
-	    {
-	      if ($action == "create")
-	      {
-	        $this->mail->send_mail('Mail_Nvo_Registro', array('mail' => addslashes($this->input->post('email')), 
-	                                                        'clave' => addslashes($this->input->post('password'))));
-	        $this->mail->send_mail('Mail_admin', array('mail' => addslashes("jairodemorais@gmail.com"), 'user' => $user));
+    $this->load->view('registro',$this->data);
+  }
+  
+  function check_captcha($val) {
+    if ($this->recaptcha->check_answer($this->input->ip_address(),$this->input->post('recaptcha_challenge_field'),$val)) {
+      return TRUE;
+    } else {
+      $this->form_validation->set_message('check_captcha',$this->lang->line('recaptcha_incorrect_response'));
+      return FALSE;
+    }
+  }
+  
+  public function updateOrCreate()
+  {
+    $this->form_validation->set_rules('nombre', 'Nombre', 'required');
+    $this->form_validation->set_rules('apellido', 'Apellido', 'required');
+    $this->form_validation->set_rules('email', 'E-mail', 'required');
+    $this->form_validation->set_rules('password', 'Password', 'required');
+    
+    $this->form_validation->set_message('required', 'Debes ingresar un %s. ');
+    
+    if ($this->form_validation->run() === FALSE || $this->check_captcha($this->input->post('recaptcha_response_field')) == FALSE)
+    {
+      $this->load->view('registro',array('recaptcha'=>$this->recaptcha->get_html(), 'errorMsg' => "Captcha invalido. Prueba nuevamente."));
+    }
+    else
+    {
+      $user = $this->user->getById($this->input->post('id'));
+      $action = "create";
+      if ($user == null)
+      {
+        $result = $this->user->create();
+      } else {
+        $action = "update";
+        $result = $this->user->update();
+      }
+      if ($result == true)
+      {
+        if ($action == "create")
+        {
+          $this->mail->send_mail('Mail_Nvo_Registro', array('mail' => addslashes($this->input->post('email')), 
+                                                          'clave' => addslashes($this->input->post('password'))));
+          $this->mail->send_mail('Mail_admin', array('mail' => addslashes("jairodemorais@gmail.com"), 'user' => $user));
         }
-	      $this->load->view('confirmacion');
-	    } else {
-	      $data['errorMsg'] = "El usuario ya existe en nuestra base de datos, Pruebe con otro email.";
-	      $this->load->view('error', $data);
-	    }
-	  }
+        $this->load->view('confirmacion');
+      } else {
+        $data['errorMsg'] = "El usuario ya existe en nuestra base de datos, Pruebe con otro email.";
+        $this->load->view('error', $data);
+      }
+    }
   }
   
   public function enable($id)

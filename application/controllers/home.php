@@ -9,13 +9,13 @@ class Home extends MY_Controller
     $this->load->library('form_validation');
     $this->load->helper('url');
   }
-	public function index()
-	{
-	  if (!empty($this->data['name']))
+  public function index()
+  {
+    if (!empty($this->data['name']))
     {
       $this->load->view('index', $this->data);
     } else {
       $this->load->view('index');
-    }	
-	}
+    }  
+  }
 }

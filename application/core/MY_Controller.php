@@ -9,5 +9,5 @@ class MY_Controller extends CI_Controller
     $this->data['name'] = $session_data['name'];
     $this->data['username'] = $session_data['username'];
     $this->load->library('form_validation');
-  }	
+  }  
 }

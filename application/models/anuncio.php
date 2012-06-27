@@ -21,41 +21,30 @@ class Anuncio extends CI_Model {
     }
   }
 
-  public function get_images ($artists){
-  
+  public function get_images ($artists)
+  {
     try {
-
-		$imgs = array();
-
-		foreach ($artists->result() as $row)
-		   {
-	
-			$this->db->select('Nombre');
-			$this->db->from('obras');
-			$this->db->where('Id_anuncio', $row->Id);
-			$this->db->where('Prioridad', '1');
-			$this->db->order_by('Id', 'DESC');
-			$this->db->limit(1,0);
-			
-			$query = $this->db->get();
-			
-			foreach  ( $query->result_array() as $row => $value) {
-				array_push ($imgs,$value);
-			}
-			
-			$query->free_result();
-			
-			}
-			
-			return $imgs;
-		
-	} catch (Exception $e) {
+      $imgs = array();
+      foreach ($artists->result() as $row)
+      {
+        $this->db->select('Nombre');
+        $this->db->from('obras');
+        $this->db->where('Id_anuncio', $row->Id);
+        $this->db->where('Prioridad', '1');
+        $this->db->order_by('Id', 'DESC');
+        $this->db->limit(1,0);
+        $query = $this->db->get();
+        foreach  ( $query->result_array() as $row => $value) {
+          array_push ($imgs,$value);
+        }
+        $query->free_result();
+      }
+      return $imgs;
+    } catch (Exception $e) {
       echo 'Caught exception: ',  $e->getMessage(), "\n";
     }
-
-	
   }
-  
+
   public function get_artists_by_value($value, $num, $offset)
   {
     try {

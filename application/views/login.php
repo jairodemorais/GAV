@@ -13,9 +13,9 @@
     </ul>
     <ul id="lista_login_mail" style="border:0;display:none;" class="box_olvido_pass">
       <p class="tit_form_log" style="width:320px;clear:both;float:left;margin-left:10px;">Ingrese el email de registracion al portal:</p>
-      <li><input type="text" name="email"  class="form_txt_login"/></li>
+      <li><input id="forgotEmail" type="text" name="email"  class="form_txt_login"/></li>
     </ul>
-            
+    <a href="#" class="link_olvido_pass" id="bt_olvido">¿Olvido su contraseña?</a>        
     <input id="logIn" name="imageField2" type="image" src="<?php echo base_url();?>img/forms/enviar_magenta.jpg" border="0" class="btn_enviar_form" style="margin-right:40px;">               
   </div>
 </div>

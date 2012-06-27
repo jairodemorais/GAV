@@ -49,16 +49,16 @@ class Recaptcha
   
   function __construct() 
   {
-		$this->_CI =& get_instance();
+    $this->_CI =& get_instance();
     $this->_CI->config->load('recaptcha');
     $this->_CI->lang->load('recaptcha');
     
     $this->_rConfig = $this->_CI->config->item('recaptcha');
     
     log_message('info',$this->_CI->lang->line('recaptcha_class_initialized'));
-	}
-	
-	/**
+  }
+  
+  /**
     * Calls an HTTP POST function to verify if the user's guess was correct
     * @param string $privkey
     * @param string $remoteip
@@ -70,17 +70,17 @@ class Recaptcha
   function check_answer ($remoteip, $challenge, $response, $extra_params = array()) 
   {
     log_message('debug','Recaptcha::check_answer('.$remoteip.','.$challenge.','.$response.','.print_r($extra_params,TRUE).')');
-  	if ($this->_rConfig['private'] == '') 
-  	{
-  		log_message('error',$this->_CI->lang->line('recaptcha_no_private_key'));
-  		return FALSE;
-  	}
+    if ($this->_rConfig['private'] == '') 
+    {
+      log_message('error',$this->_CI->lang->line('recaptcha_no_private_key'));
+      return FALSE;
+    }
   
-  	if ($remoteip == null || $remoteip == '') 
-  	{
-  		log_message('error',$this->_CI->lang->line('recaptcha_no_remoteip'));
-  		return FALSE;
-  	}
+    if ($remoteip == null || $remoteip == '') 
+    {
+      log_message('error',$this->_CI->lang->line('recaptcha_no_remoteip'));
+      return FALSE;
+    }
 
     //discard spam submissions
     if ($challenge == null || strlen($challenge) == 0 || $response == null || strlen($response) == 0) 
@@ -112,8 +112,8 @@ class Recaptcha
       return FALSE;
     }
   }
-	
-	/**
+  
+  /**
    * Gets the challenge HTML (javascript and non-javascript version).
    * This is called from the browser, and the resulting reCAPTCHA HTML widget
    * is embedded within the HTML form it was called from.
@@ -125,21 +125,21 @@ class Recaptcha
    */
   function get_html ($lang = 'en',$use_ssl = false) 
   {
-  	log_message('debug','Recaptcha::get_html('.$use_ssl.')');
-  	if ($this->_rConfig['public'] == '') 
-  	{
+    log_message('debug','Recaptcha::get_html('.$use_ssl.')');
+    if ($this->_rConfig['public'] == '') 
+    {
       log_message('error',$this->_CI->lang->line('recaptcha_no_private_key'));
       return $this->_CI->lang->line('recaptcha_html_error');
-  	}
-  	
-  	if ($use_ssl) 
-  	{
-  	  $server = $this->_rConfig['RECAPTCHA_API_SECURE_SERVER'];
-  	} 
-  	else 
-  	{
-  	  $server = $this->_rConfig['RECAPTCHA_API_SERVER'];
-  	}
+    }
+    
+    if ($use_ssl) 
+    {
+      $server = $this->_rConfig['RECAPTCHA_API_SECURE_SERVER'];
+    } 
+    else 
+    {
+      $server = $this->_rConfig['RECAPTCHA_API_SERVER'];
+    }
 
     $errorpart = '';
     if ($this->_error !== '') 
@@ -167,11 +167,11 @@ class Recaptcha
    */
   function get_signup_url ($domain = null, $appname = null) 
   {
-  	return $this->_rConfig['RECAPTCHA_SIGNUP_URL'].'?'.$this->_qsencode(array ('domain' => $domain, 'app' => $appname));
+    return $this->_rConfig['RECAPTCHA_SIGNUP_URL'].'?'.$this->_qsencode(array ('domain' => $domain, 'app' => $appname));
   }
 
-	
-	/**
+  
+  /**
    * Encodes the given data into a query string format
    * @param $data - array of string elements to be encoded
    * @return string - encoded request
