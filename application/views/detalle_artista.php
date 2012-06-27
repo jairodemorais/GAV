@@ -82,16 +82,16 @@
           <p class="parrafo_izq pf_artista"><?= $artista['Descripcion']?></p>
           <div id="video_contenedor" class="multi_artista" name="<?=$artista['Video']?>"></div>
           <ul id="contacto_artista">
-            <?php if(isset($artista['Direccion'])): ?>
+            <?php if($artista['Direccion'] != ""): ?>
               <li class="adress_prov"><?= $artista['Direccion']?> (<a href="#">ver mapa</a>)</li>
             <?php endif; ?>
-            <?php if(isset($artista['Mail'])): ?>
+            <?php if($artista['Mail'] != ""): ?>
               <li class="mail_prov"><?= $artista['Mail']?></li>
             <?php endif; ?>
-            <?php if(isset($artista['Telefono'])): ?>
+            <?php if($artista['Telefono'] != ""): ?>
               <li class="phone_prov"><?= $artista['Telefono']?></li>
             <?php endif; ?>
-            <?php if(isset($artista['Web'])): ?>
+            <?php if($artista['Web'] != ""): ?>
               <li class="web_prov"><?= $artista['Web']?></li>
             <?php endif; ?>
           </ul>
