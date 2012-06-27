@@ -9,7 +9,7 @@
 <table bgcolor="#ffffff" border="0" cellpadding="0" cellspacing="0" width="460">
 <!-- fwtable fwsrc="Mail_Plantilla.png" fwpage="Página 1" fwbase="Mail_Plantilla.jpg" fwstyle="Generic" fwdocid = "856845663" fwnested="1" -->
   <tr>
-   <td width="460"><div align="center"><img name="top_mail" src="img/top_mail.jpg" width="460" height="128" border="0" alt=""></div></td>
+   <td width="460"><div align="center"><img name="top_mail" src="--baseUrl--img/top_mail.jpg" width="460" height="128" border="0" alt=""></div></td>
   </tr>
   <tr>
     <td>&nbsp;</td>
@@ -34,7 +34,7 @@
   <tr>
    <td><table align="center" bgcolor="#ffffff" border="0" cellpadding="0" cellspacing="0" width="460">
     <tr>
-     <td width="460"><img src="img/pie_mail.jpg" alt="" name="pie_mail" width="459" height="33" border="0" usemap="#pie_mailMap"></td>
+     <td width="460"><img src="--baseUrl--img/pie_mail.jpg" alt="" name="pie_mail" width="459" height="33" border="0" usemap="#pie_mailMap"></td>
     </tr>
   </table></td>
   </tr>

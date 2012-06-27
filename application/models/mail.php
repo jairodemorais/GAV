@@ -14,6 +14,7 @@ class Mail extends CI_Model {
     $this->email->to($data['mail']); 
     $this->email->subject('Equipo Gav');
     $email = $this->load->view($template, $data, TRUE);
+    $email = str_replace("--baseUrl--", base_url(), $email);
     $this->email->message($email);  
     $this->email->send();
   }

@@ -83,6 +83,15 @@ class User extends CI_Model {
    return $this->db->update('usuarios', $data);
   }
   
+  public function resetPass($mail)
+  {
+   $data = array(
+      'Password' =>  md5(addslashes('123456')), 
+   );
+   $this->db->where('Mail', $mail);
+   return $this->db->update('usuarios', $data);
+  }
+  
   public function get($mail)
   {
     try {

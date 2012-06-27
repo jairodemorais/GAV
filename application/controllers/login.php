@@ -31,16 +31,12 @@ class LogIn extends CI_Controller {
   
   public function forgot()
   {
-    $this->form_validation->set_rules('email', 'E-mail', 'required');
-    if ($this->validatePostParams())
+    $user = $this->user->get(addslashes($this->input->post('email')));
+    if ($user != null)
     {
-      $user = $this->user->get(addslashes($this->input->post('email')));
-      if ($user != null)
-      {
-        $this->mail->send_mail('Mail_Olvido_Pass.php', array('mail' => $user['Mail'], 
-                                                        'clave' => $user['Password']));
-      }
-      echo 'true';
+      $this->user->resetPass(addslashes($this->input->post('email')));
+      $this->mail->send_mail('Mail_Olvido_Pass.php', array('mail' => $user['Mail'], 'clave' => '123456'));
+       echo 'true';
     } else {
       echo 'false';
     }

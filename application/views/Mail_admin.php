@@ -6,20 +6,15 @@
     <!--Fireworks CS3 Generic target.  Created Tue Jun 05 22:18:45 GMT-0300 2012-->
   </head>
   <body bgcolor="#ffffff">
-    DATOS DEL REGISTRADO:
-    Nombre: <?= $user['Nombre'] ?>
-    Apellido: <?= $user['Apellido'] ?>
-    Mail: <?= $user['Mail'] ?>
-    Telefono: <?= $user['Telefono'] ?>
-    Direccion: <?= $user['Direccion'] ?>
-    Ciudad: <?= $user['Ciudad'] ?>
-    Provincia: <?= $user['Provincia'] ?>
-    Pais: <?= $user['Pais'] ?>
-    CP: <?= $user['CP'] ?>
-
+    <div align="center"><img name="top_mail" src="--baseUrl--img/top_mail.jpg" width="460" height="128" border="0" alt=""></div>
+    DATOS DEL REGISTRADO:</br>
+    Nombre: <?= $Nombre ?> </br>
+    Apellido: <?= $Apellido ?></br>
+    Mail: <?= $UserEmail ?></br>
     <div>
       <strong>Para habilitar el usuario haga click en el siguiente link:</strong>
-      <a><?= base_url()."habilitar/".$user["Id"] ?></a>
+      <a><?= base_url()."habilitar/".$Id ?></a>
     </div>
+    <img src="--baseUrl--img/pie_mail.jpg" alt="" name="pie_mail" width="459" height="33" border="0" usemap="#pie_mailMap">
 </body>
 </html>

@@ -19,10 +19,10 @@ function init() {
   $('#logIn').click(function() {
     var username = $('#userName').val();
     var password = $('#password').val();
-    var email = $('forgotEmail').val();
+    var email = $('#forgotEmail').val();
 
     if (!email) {
-      $.post('index.php/login/validateUser',
+      $.post('/gav/index.php/login/validateUser',
       { 'usuario':username, 'clave' : password}, 
       function(result){
         if(result =='true'){
@@ -32,10 +32,14 @@ function init() {
         }
       });
     } else {
-      $.post('index.php/login/forgot',
+      $.post('/gav/index.php/login/forgot',
       { 'email': email}, 
       function(result){
+        if(result == "true") {
           alert('Se ha enviado un email a su casilla de correo electronico');
+        } else {
+          alert('El email ingresado es incorrecto.');
+        }
       });
     }
   });

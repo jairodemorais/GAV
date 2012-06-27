@@ -48,9 +48,11 @@ class Register extends MY_Controller {
       if ($user == null)
       {
         $result = $this->user->create();
+        $id = $this->db->insert_id();
       } else {
         $action = "update";
         $result = $this->user->update();
+        $id = $this->input->post('id');
       }
       if ($result == true)
       {
@@ -58,7 +60,12 @@ class Register extends MY_Controller {
         {
           $this->mail->send_mail('Mail_Nvo_Registro', array('mail' => addslashes($this->input->post('email')), 
                                                           'clave' => addslashes($this->input->post('password'))));
-          $this->mail->send_mail('Mail_admin', array('mail' => addslashes("jairodemorais@gmail.com"), 'user' => $user));
+                                                          
+          $this->mail->send_mail('Mail_admin', array('mail' => addslashes("jairodemorais@gmail.com"), 
+                                                     'Id' => $id, 
+                                                     'Nombre' => $this->input->post('nombre'),
+                                                     'Apellido' => $this->input->post('apellido'),
+                                                     'UserEmail' => $this->input->post('email')));
         }
         $this->load->view('confirmacion');
       } else {
