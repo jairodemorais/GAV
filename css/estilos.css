@@ -46,7 +46,7 @@ ul {list-style-type:none;}
 #top_superior {width:990px; height:91px;  padding:15px 0 10px 0; float:left;}
 
 #buscador_top {width:440px;float:left; padding:28px 0px 0px 80px;}
-.search_top {width:367px; height:19px; background:url(../img/buscar_negro.gif) no-repeat top center; padding:4px 12px 4px 12px; float:left;}
+.search_top {width:367px; height:19px; padding:4px 12px 4px 12px; float:left; border:1px solid #CCC;}
 .btn_buscar_top {float:left; margin:2px 0px 0px 10px;}
 
 #categorias_top {float:left;width:440px; padding-top:10PX;}
@@ -434,3 +434,5 @@ h1.tit_novedades {color:#ef9600;}
 h1.tit_beneficios {color:#00afd7;}
 
 .click_ampliar {width:300px; text-align:center; padding-top:10px; font-size:11px; color:#999999;}
+
+.error_campos {border:1px solid #CCC;float:left; width:95%; padding:5px; margin-bottom:10px;font-weight:bold;color:#CC0000;}

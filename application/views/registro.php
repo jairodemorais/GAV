@@ -56,9 +56,9 @@
             <li class="fondo_reg_premium">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
           </ul>
           <?php if (isset($errorMsg)): ?>
-            <h1 class="tit_principal"><?php echo $errorMsg ?></h1>
+          <div class="error_campos"><?php echo $errorMsg ?></div>
           <?php endif; ?>
-          <?php echo validation_errors(); ?>
+          <div class="error_campos"><?php echo validation_errors(); ?></div>
           <?php echo form_open('register/updateOrCreate') ?>
             <ul class="form_registro">
               <li style="display:none;">
