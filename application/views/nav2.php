@@ -14,7 +14,7 @@
     <ul>
     <?php else: ?>
       <a id='loginButton' href="#login" class="btn_login_home"></a>
-      <a href="#" class="olvido_pass">¿Olvidaste tu contraseña?</a>
+      <a href="#login" class="olvido_pass fancy">¿Olvidaste tu contraseña?</a>
     <?php endif; ?>
 </div>   
 

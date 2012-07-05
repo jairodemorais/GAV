@@ -77,18 +77,17 @@
             </ul>
           </div>
           <?php if (isset($errorMsg)): ?>
-            <h1 class="tit_principal"><?php echo $errorMsg ?></h1>
+            <h1 class="tit_principal">Resultado de búsqueda</h1>
+            <h2 class="subtit_principal"><?php echo $errorMsg ?></h1>
           <?php endif; ?>
           <ul id="listado_artistas">
             <?php if(isset($artists)): ?>
               <?php $n=0; foreach ($artists as $res): ?>
-                <li><img width="135" height="105" src="<?php echo base_url();?>backend/public_html/imagenes/obras/thumb/<?=$res->Imagen?>" /><a href="<?php echo base_url();?>artista/<? echo  url_title ($res->Nombre); ?>/<?=$res->Id?>" class="link_artista"><?= $res->Nombre?></a></li>
+                <li><div><? if (isset($res->Imagen)) {?><img width="135" height="105" src="<?php echo base_url();?>backend/public_html/imagenes/obras/thumb/<?=$res->Imagen?>" /><? } ?></div><a href="<?php echo base_url();?>artista/<? echo  url_title ($res->Nombre); ?>/<?=$res->Id?>" class="link_artista"><?= $res->Nombre?></a></li>
               <?php $n++; endforeach;?>
             <?php endif; ?>
           </ul>
-          <div id="alinear_paginador">
             <?php echo $this->pagination->create_links(); ?>
-          </div>
         </div>
       </div>
     </div>

@@ -64,4 +64,15 @@ class Anuncio extends CI_Model {
       echo 'Caught exception: ',  $e->getMessage(), "\n";
     }
   }
+
+  public function get_obras_id($id)
+  {
+    try {
+      $query = $this->db->get_where('obras',array('Id'=>$id));
+      return $query->result();
+    } catch (Exception $e) {
+      echo 'Caught exception: ',  $e->getMessage(), "\n";
+    }
+  }
+  
 }

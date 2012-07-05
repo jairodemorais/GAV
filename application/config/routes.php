@@ -45,6 +45,7 @@ $route['perfil'] = "register/get";
 $route['buscar/([A-Z | -])'] = "artist/find/$1";
 $route['newsboard/(:num)'] = "newsboard/index";
 $route['artista/:any/(:num)'] = "artist/get/$1";
+$route['ampliar/(:num)'] = "ampliar/index/$1";
 $route['register/updateOrCreate'] = 'register/updateOrCreate';
 $route['noticia/(:num)'] = "newsboard/get/$1";
 $route['habilitar/(:num)'] = 'register/enable/$1';

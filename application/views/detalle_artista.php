@@ -70,8 +70,8 @@
             <?php if(isset($obras)): ?>
               <?php foreach ($obras as $res): ?>
                 <li>
-                  <img width="135" height="105" src="<?= base_url()."backend/public_html/imagenes/obras/crop/".$res->Nombre;?>" />
-                  <a href="#artista<?=$res->Id?>" class="link_artista btn_ampliar_obra"><?= $res->Nombre?></a>
+                  <div><? if (isset($res->Nombre)) { ?><a href="<? echo base_url();?>ampliar/<?=$res->Id?>" class="btn_ampliar_obra"><img width="135" height="105" src="<?= base_url()."backend/public_html/imagenes/obras/crop/".$res->Nombre;?>" /></a><? } ?></div>
+                  <a href="<? echo base_url();?>ampliar/<?=$res->Id?>" class="link_artista btn_ampliar_obra"><?= $res->Epigrafe?></a>
                 </li>
               <?php endforeach;?>
             <?php endif; ?>
@@ -128,28 +128,6 @@
     </div>
     <div class="corte"></div>
   </div>
-  <?php if(isset($obras)): ?>
-    <?php foreach ($obras as $res): ?>
-      <!--  AMPLIAR OBRA  -->  
-      <div style="display:none;">
-        <div id="artista<?=$res->Id?>" class="div_obras">
-          <img src="<?php echo base_url()."backend/public_html/imagenes/obras/big/".$res->Nombre;?>" />
-          <ul class="datos_obra">    
-            <li> <h2><?= $res->Epigrafe ?></h2> </li>
-            <li> <p class="caract_obra"><b>Técnica:</b> <?= $res->Tecnica ?></p> </li>
-            <li> <p class="caract_obra"><b>Medidas:</b> <?= $res->Medidas ?></p> </li>
-            <li> <p class="caract_obra"><b>Año:</b> <?= $res->Anio ?></p> </li>
-            <li>   
-              <div class="valor_ref">
-                <p class="tit_valor_ref">Valor de referencia</p>
-                <p class="total_valor"><?= $res->Valor ?></p>
-              </div>
-            </li>    
-          </ul>
-        </div>
-      </div>
-      <!-- -->  
-    <?php endforeach;?>
-  <?php endif; ?>
+
 </body>
 </html>
