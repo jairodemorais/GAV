@@ -52,10 +52,12 @@ class Newsboard extends MY_Controller {
       $data['errorMsg'] = "No se encontraron noticias. Vuelva a intentarlo";
     }
     $this->load->view("newsboard", $data);
+    $this->load->view("pie");
   }
   
   public function get($id){
     $data['noticia'] = $this->noticia->get($id);
     $this->load->view("ampliar_novedades", $data);
+    $this->load->view("pie");
   }
 }

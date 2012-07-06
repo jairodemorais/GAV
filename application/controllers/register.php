@@ -17,6 +17,7 @@ class Register extends MY_Controller {
   {
     $this->data['recaptcha'] = $this->recaptcha->get_html();
     $this->load->view('registro',$this->data);
+    $this->load->view("pie");
   }
   
   function check_captcha($val) {
@@ -71,6 +72,7 @@ class Register extends MY_Controller {
       } else {
         $data['errorMsg'] = "El usuario ya existe en nuestra base de datos, Pruebe con otro email.";
         $this->load->view('error', $data);
+		$this->load->view("pie");
       }
     }
   }
@@ -99,6 +101,7 @@ class Register extends MY_Controller {
         $this->data['user'] = $this->user->get($this->data['username']);
         $this->data['recaptcha'] = $this->recaptcha->get_html();
         $this->load->view('registro', $this->data);
+		$this->load->view("pie");
       }    
     } catch (Exception $e) {
       echo 'Caught exception: ',  $e->getMessage(), "\n";

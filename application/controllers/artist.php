@@ -12,6 +12,7 @@ class Artist extends MY_Controller {
   public function index()
   {
     $this->load->view('listado');
+	$this->load->view("pie");
   }
   
   public function find($letter)
@@ -71,6 +72,7 @@ class Artist extends MY_Controller {
       $data['errorMsg'] = "No se encontraron artistas para su busqueda. Vuelva a intentarlo";
     }
     $this->load->view('listado', $data);
+    $this->load->view('pie');
   }
   
   public function get($id)
@@ -78,5 +80,6 @@ class Artist extends MY_Controller {
     $data['artista'] = $this->anuncio->get_artists_by_id($id);
     $data['obras'] = $this->anuncio->get_obras($id);
     $this->load->view('detalle_artista', $data);
+    $this->load->view('pie');
   }
 }
