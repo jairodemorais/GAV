@@ -8,14 +8,18 @@ class Home extends MY_Controller
     $this->load->helper('form');
     $this->load->library('form_validation');
     $this->load->helper('url');
+    $this->load->model('categoria');
   }
   public function index()
   {
-    if (!empty($this->data['name']))
-    {
-      $this->load->view('index', $this->data);
-    } else {
-      $this->load->view('index');
-    }  
+    $menuData["categories"] = $this->categoria->get_categories(6);
+    
+    $menuDiv = $this->load->view('menu', $menuData, TRUE );
+    $buscarDiv = $this->load->view('buscar_artistas_sin_cat', $menuData, TRUE );
+    
+    $this->data["menuDiv"] = $menuDiv;
+    $this->data["buscarDiv"] = $buscarDiv;
+    
+    $this->load->view('index', $this->data);
   }
 }

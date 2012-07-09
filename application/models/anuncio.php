@@ -27,9 +27,9 @@ class Anuncio extends CI_Model {
 	
 	  $this->db->select('anuncios.Nombre as Nombre, anuncios.Id as Id, anuncios.Mail as Mail, obras.Nombre as Imagen');
 	  $this->db->join('obras', 'anuncios.Id = obras.Id');
-      $this->db->like('anuncios.Nombre', $value);
-      $this->db->or_like('anuncios.Descripcion', $value);
-      $this->db->or_like('anuncios.Mail', $value);
+    $this->db->like('anuncios.Nombre', $value);
+    $this->db->or_like('anuncios.Descripcion', $value);
+    $this->db->or_like('anuncios.Mail', $value);
 	  $this->db->group_by("anuncios.Nombre"); 
 	  $this->db->order_by("anuncios.Nombre", "ASC"); 
 
@@ -39,6 +39,16 @@ class Anuncio extends CI_Model {
       {
         $query = $this->db->get('anuncios', $num, $offset);
       } 
+      return $query;
+    } catch (Exception $e) {
+      echo 'Caught exception: ',  $e->getMessage(), "\n";
+    }
+  }
+  
+  public function get_artists_by_category($categoryId, $num, $offset)
+  {
+    try {
+	    $query = $this->db->get_where('anuncios',array('Id_categoria'=>$categoryId), $num, $offset);
       return $query;
     } catch (Exception $e) {
       echo 'Caught exception: ',  $e->getMessage(), "\n";

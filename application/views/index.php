@@ -9,6 +9,12 @@
     $('li.margen_izq_cat').hover(
       function() { $('ul', this).css('display', 'block'); },
       function() { $('ul', this).css('display', 'none'); });
+      
+      <?php if (isset($load_view) && $load_view == 'contact'): ?>
+        var j1 = document.getElementById("contactButton");
+        j1.href = '#contacto';
+        $("#contactButton").trigger('click');
+      <?php endif; ?>
   });
   </script>
 </head>
@@ -18,31 +24,9 @@
       <div id="home">
         <?php include('application/views/nav.php') ?>
         <div id="buscador_home">
-          <?php include('application/views/buscar_artistas_form.php') ?>
+          <?php echo $buscarDiv; ?>
         </div>
-        <ul id="categorias_home">
-          <li class="margen_izq_cat">
-            <a href="#" class="cats_home cat_magenta">Categoría 1</a>
-            <ul>
-              <li><a href="#" class="submenu_home">Subcategoría 1</a></li>
-              <li><a href="#" class="submenu_home">Subcategoría 2</a></li>
-              <li><a href="#" class="submenu_home">Subcategoría 3</a></li>
-              <li><a href="#" class="submenu_home">Subcategoría 4</a></li>
-            </ul>
-          </li>
-          <li class="margen_izq_cat">
-            <a href="#" class="cats_home cat_verde">Categoría 2</a>
-            <ul>
-              <li><a href="#" class="submenu_home">Subcategoría 1</a></li>
-              <li><a href="#" class="submenu_home">Subcategoría 2</a></li>
-              <li><a href="#" class="submenu_home">Subcategoría 3</a></li>
-              <li><a href="#" class="submenu_home">Subcategoría 4</a></li>
-            </ul>
-          </li>
-          <li class="margen_izq_cat"><a href="#" class="cats_home cat_violeta">Categoría 3</a></li>
-          <li class="margen_izq_cat"><a href="#" class="cats_home cat_turquesa">Categoría 4</a></li>
-          <li class="margen_izq_cat"><a href="#" class="cats_home cat_naranja">Categoría 5</a></li>
-        </ul>
+        <div id="menu_div"><?php echo $menuDiv; ?></div>
       </div>
     </div>
     <div class="corte"></div>

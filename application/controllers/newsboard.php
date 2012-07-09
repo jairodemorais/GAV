@@ -6,6 +6,7 @@ class Newsboard extends MY_Controller {
   {
     parent::__construct();
     $this->load->model('noticia');
+    $this->load->model('categoria');
     $this->load->library('pagination');
   }
   
@@ -51,13 +52,23 @@ class Newsboard extends MY_Controller {
     {
       $data['errorMsg'] = "No se encontraron noticias. Vuelva a intentarlo";
     }
+    $menuData["categories"] = $this->categoria->get_categories(6);
+    
+    $buscarDiv = $this->load->view('buscar_artistas_form', $menuData, TRUE );
+    $data["buscarDiv"] = $buscarDiv;
+    
     $this->load->view("newsboard", $data);
-    $this->load->view("pie");
+    $this->load->view("pie", $menuData);
   }
   
   public function get($id){
     $data['noticia'] = $this->noticia->get($id);
+    $menuData["categories"] = $this->categoria->get_categories(6);
+    $buscarDiv = $this->load->view('buscar_artistas_form', $menuData, TRUE );
+    $data["buscarDiv"] = $buscarDiv;
+    
     $this->load->view("ampliar_novedades", $data);
-    $this->load->view("pie");
+    
+    $this->load->view("pie", $menuData);
   }
 }

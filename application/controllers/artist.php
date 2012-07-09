@@ -6,13 +6,15 @@ class Artist extends MY_Controller {
   {
     parent::__construct();
      $this->load->model('anuncio');
+     $this->load->model('categoria');
      $this->load->library('pagination');
   }
   
   public function index()
   {
     $this->load->view('listado');
-	$this->load->view("pie");
+    $menuData["categories"] = $this->categoria->get_categories(6);
+	  $this->load->view("pie", $menuData);
   }
   
   public function find($letter)
@@ -71,15 +73,78 @@ class Artist extends MY_Controller {
     {
       $data['errorMsg'] = "No se encontraron artistas para su busqueda. Vuelva a intentarlo";
     }
+    $menuData["categories"] = $this->categoria->get_categories(6);
+    $buscarDiv = $this->load->view('buscar_artistas_form', $menuData, TRUE );
+    $data["buscarDiv"] = $buscarDiv;
+    
     $this->load->view('listado', $data);
-    $this->load->view('pie');
+    $this->load->view('pie', $menuData);
   }
   
   public function get($id)
   {
     $data['artista'] = $this->anuncio->get_artists_by_id($id);
     $data['obras'] = $this->anuncio->get_obras($id);
+    $menuData["categories"] = $this->categoria->get_categories(6);
+    $buscarDiv = $this->load->view('buscar_artistas_form', $menuData, TRUE );
+    $data["buscarDiv"] = $buscarDiv;
+    
     $this->load->view('detalle_artista', $data);
-    $this->load->view('pie');
+    $this->load->view('pie', $menuData);
   }
+  public function find_by_category($id)
+  {
+    if($this->uri->segment(5) == ""){
+      $offset = 0;
+    } else {
+      $offset = $this->uri->segment(5);
+    }
+    
+    $artists = $this->anuncio->get_artists_by_category($id, 10, $offset);
+    $config['total_rows'] = 10;
+
+    $config['uri_segment'] = '5';
+    $config['base_url'] = base_url().'artist/find_by_category/'.$id;
+    $config['per_page'] = '10';
+    $config['full_tag_open'] = '<ul id="paginador">';
+    $config['full_tag_close'] = '</ul>';
+    
+    $config['next_link'] = 'Pagina siguiente &gt;';
+    $config['next_tag_open'] = '<li class="pages_txt">';
+    $config['next_tag_close'] = '</li>';
+    
+    $config['prev_link'] = '&lt; Pagina anterior';
+    $config['prev_tag_open'] = '<li class="pages_txt">';
+    $config['prev_tag_close'] = '</li>';
+    
+    $config['num_tag_open'] = '<li class="pages_num">';
+    $config['num_tag_close'] = '</li>';
+    
+    $config['cur_tag_open'] = '<li class="pages_txt">';
+    $config['cur_tag_close'] = '</li>';
+    
+    $config['last_link'] = 'Ultima pagina &gt;&gt;';
+    $config['last_tag_open'] = '<li class="pages_txt">';
+    $config['last_tag_close'] = '</li>';
+    
+    $config['first_link'] = '&lt;&lt; Primer pagina';
+    $config['first_tag_open'] = '<li class="pages_txt>';
+    $config['first_tag_close'] = '</li>';
+
+    $this->pagination->initialize($config);
+    if($artists->num_rows() > 0)
+    {
+      $data['artists'] = $artists->result();
+    } else 
+    {
+      $data['errorMsg'] = "No se encontraron artistas para su busqueda. Vuelva a intentarlo";
+    }
+    $menuData["categories"] = $this->categoria->get_categories(6);
+    $buscarDiv = $this->load->view('buscar_artistas_form', $menuData, TRUE );
+    $data["buscarDiv"] = $buscarDiv;
+    
+    $this->load->view('listado', $data);
+    $this->load->view('pie', $menuData);
+  }
+  
 }

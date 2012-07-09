@@ -12,21 +12,7 @@
         <div id="top_superior">
           <img src="<?php echo base_url();?>img/logo_negro.gif" class="logo_top"/>
           <div id="buscador_top">
-            <form action="" method="post">
-              <input name="" type="text" class="search_top"/>
-              <input name="imageField2" type="image" src="<?php echo base_url();?>img/btn/buscar_black.gif" border="0" class="btn_buscar_top">
-            </form>
-            <ul id="categorias_top">
-              <li><a href="#">Categoría 1</a></li>
-              <li>|</li>
-              <li><a href="#">Categoría 2</a></li>
-              <li>|</li>
-              <li><a href="#">Categoría 3</a></li>
-              <li>|</li>
-              <li><a href="#">Categoría 4</a></li>
-              <li>|</li>
-              <li><a href="#">Categoría 5</a></li>
-            </ul>
+            <?php echo $buscarDiv; ?>
           </div>
           <img src="<?php echo base_url();?>img/gav_black.jpg" class="gav_icon_top"/> 
         </div>

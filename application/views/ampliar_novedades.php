@@ -44,7 +44,7 @@
             <div id="buscador_newsboard">
               <img src="<?php echo base_url();?>img/logo_news.gif" />
               <div id="cont_buscar_news">
-                <?php include('application/views/buscar_artistas_form.php') ?>
+                <?php echo $buscarDiv; ?>
               </div>
             </div>
             <ul id="categorias_home">

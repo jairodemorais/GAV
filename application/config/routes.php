@@ -43,6 +43,7 @@ $route['inicio'] = 'home';
 $route['registro'] = 'register';
 $route['perfil'] = "register/get";
 $route['buscar/([A-Z | -])'] = "artist/find/$1";
+$route['buscar/cat/(:num)'] = "artist/find_by_category/$1";
 $route['newsboard/(:num)'] = "newsboard/index";
 $route['artista/:any/(:num)'] = "artist/get/$1";
 $route['ampliar/(:num)'] = "ampliar/index/$1";

@@ -7,6 +7,7 @@ class Register extends MY_Controller {
     parent::__construct();
     $this->load->model('user');
     $this->load->model('mail');
+    $this->load->model('categoria');
     $this->load->helper('form');
     $this->load->library('recaptcha');
     $this->lang->load('recaptcha');
@@ -16,8 +17,11 @@ class Register extends MY_Controller {
   public function index()
   {
     $this->data['recaptcha'] = $this->recaptcha->get_html();
+     $menuData["categories"] = $this->categoria->get_categories(6);
+    $buscarDiv = $this->load->view('buscar_artistas_form', $menuData, TRUE );
+    $this->data["buscarDiv"] = $buscarDiv;
     $this->load->view('registro',$this->data);
-    $this->load->view("pie");
+    $this->load->view("pie", $menuData);
   }
   
   function check_captcha($val) {
@@ -62,7 +66,7 @@ class Register extends MY_Controller {
           $this->mail->send_mail('Mail_Nvo_Registro', array('mail' => addslashes($this->input->post('email')), 
                                                           'clave' => addslashes($this->input->post('password'))));
                                                           
-          $this->mail->send_mail('Mail_admin', array('mail' => addslashes("jairodemorais@gmail.com"), 
+          $this->mail->send_mail('Mail_admin', array('mail' => addslashes("martin@seemple.com.ar"), 
                                                      'Id' => $id, 
                                                      'Nombre' => $this->input->post('nombre'),
                                                      'Apellido' => $this->input->post('apellido'),
@@ -71,8 +75,11 @@ class Register extends MY_Controller {
         $this->load->view('confirmacion');
       } else {
         $data['errorMsg'] = "El usuario ya existe en nuestra base de datos, Pruebe con otro email.";
+        $menuData["categories"] = $this->categoria->get_categories(6);
+        $buscarDiv = $this->load->view('buscar_artistas_form', $menuData, TRUE );
+        $this->data["buscarDiv"] = $buscarDiv;
         $this->load->view('error', $data);
-		$this->load->view("pie");
+		    $this->load->view("pie", $menuData);
       }
     }
   }
@@ -100,8 +107,12 @@ class Register extends MY_Controller {
       } else {
         $this->data['user'] = $this->user->get($this->data['username']);
         $this->data['recaptcha'] = $this->recaptcha->get_html();
+        $menuData["categories"] = $this->categoria->get_categories(6);
+        $buscarDiv = $this->load->view('buscar_artistas_form', $menuData, TRUE );
+        $this->data["buscarDiv"] = $buscarDiv;
+        
         $this->load->view('registro', $this->data);
-		$this->load->view("pie");
+		    $this->load->view("pie", $menuData);
       }    
     } catch (Exception $e) {
       echo 'Caught exception: ',  $e->getMessage(), "\n";
