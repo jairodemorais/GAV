@@ -36,7 +36,9 @@
         <div id="lateral_izquierdo">
           <h1 class="tit_principal">Muchas Gracias!</h1>
           <h2 class="subtit_principal">Tus datos ha sido enviados correctamente. <br />
-            A la brevedad recibirás un correo confirmando tu solicitud de registro a la <strong>Guía de Artes visuales</strong>.</h2>
+            <?= $message ?>  
+            
+            <strong>Guía de Artes visuales</strong>.</h2>
             <h2 class="subtit_principal">Atentamente;<br />
               El Equipo de <strong>GAV</strong></h2>
             </div>

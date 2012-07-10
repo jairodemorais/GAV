@@ -38,13 +38,12 @@ class Register extends MY_Controller {
     $this->form_validation->set_rules('nombre', 'Nombre', 'required');
     $this->form_validation->set_rules('apellido', 'Apellido', 'required');
     $this->form_validation->set_rules('email', 'E-mail', 'required');
-    $this->form_validation->set_rules('password', 'Password', 'required');
     
     $this->form_validation->set_message('required', 'Debes ingresar un %s. ');
     
     if ($this->form_validation->run() === FALSE || $this->check_captcha($this->input->post('recaptcha_response_field')) == FALSE)
     {
-      $this->load->view('registro',array('recaptcha'=>$this->recaptcha->get_html(), 'errorMsg' => "Captcha invalido. Prueba nuevamente."));
+      $this->load->view('registro',array('recaptcha'=>$this->recaptcha->get_html(), 'errorMsg' => "Alguno de los valores ingresados no es correcto."));
     }
     else
     {
@@ -52,6 +51,11 @@ class Register extends MY_Controller {
       $action = "create";
       if ($user == null)
       {
+        if($this->input->post('password') == "")
+        {
+          $this->load->view('registro',array('recaptcha'=>$this->recaptcha->get_html(), 'errorMsg' => "Debes ingresar una clave para crear un usuario."));
+          return;
+        }
         $result = $this->user->create();
         $id = $this->db->insert_id();
       } else {
@@ -59,6 +63,9 @@ class Register extends MY_Controller {
         $result = $this->user->update();
         $id = $this->input->post('id');
       }
+      $menuData["categories"] = $this->categoria->get_categories(6);
+      $buscarDiv = $this->load->view('buscar_artistas_form', $menuData, TRUE );
+      $this->data["buscarDiv"] = $buscarDiv;
       if ($result == true)
       {
         if ($action == "create")
@@ -71,14 +78,16 @@ class Register extends MY_Controller {
                                                      'Nombre' => $this->input->post('nombre'),
                                                      'Apellido' => $this->input->post('apellido'),
                                                      'UserEmail' => $this->input->post('email')));
+          
+          $this->data['message'] = 'A la brevedad recibirás un correo confirmando tu solicitud de registro';
+          $this->load->view('confirmacion', $this->data);
+        } else {
+          $this->data['message'] = 'Tus datos han sido actualizados correctamente.';
+          $this->load->view('confirmacion', $this->data);
         }
-        $this->load->view('confirmacion');
       } else {
-        $data['errorMsg'] = "El usuario ya existe en nuestra base de datos, Pruebe con otro email.";
-        $menuData["categories"] = $this->categoria->get_categories(6);
-        $buscarDiv = $this->load->view('buscar_artistas_form', $menuData, TRUE );
-        $this->data["buscarDiv"] = $buscarDiv;
-        $this->load->view('error', $data);
+        $this->data['errorMsg'] = "El usuario ya existe en nuestra base de datos, Pruebe con otro email.";
+        $this->load->view('error', $this->data);
 		    $this->load->view("pie", $menuData);
       }
     }

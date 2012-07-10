@@ -7,10 +7,10 @@
   </head>
   <body bgcolor="#ffffff">
     <div align="center"><img name="top_mail" src="--baseUrl--img/top_mail.jpg" width="460" height="128" border="0" alt=""></div>
-    Mensaje del usuario:</br>
-    Nombre: <?= $Nombre ?> </br>
-    Mail: <?= $UserMail ?></br>
-    Comentario: <?= $Comentario ?></br>
+    <div> Mensaje del usuario:</div>
+    <div>Nombre: <?= $Nombre ?> </div>
+    <div>Mail: <?= $UserMail ?></div>
+    <div>Comentario: <?= $Comentario ?></div>
     <img src="--baseUrl--img/pie_mail.jpg" alt="" name="pie_mail" width="459" height="33" border="0" usemap="#pie_mailMap">
 </body>
 </html>

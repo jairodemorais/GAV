@@ -7,7 +7,7 @@
 <ul id="categorias_top">
   <?php if(isset($categories)): ?>
     <?php foreach ($categories as $index=>$cat): ?>
-      <li><a href="buscar/cat/<?=$cat->Id?>"><?= $cat->Nombre?></a></li>
+      <li><a href="<?php echo base_url();?>buscar/cat/<?=$cat->Id?>"><?= $cat->Nombre?></a></li>
       <?php if ($index < count($categories) -1): ?>
         <li>|</li>
       <?php endif; ?>

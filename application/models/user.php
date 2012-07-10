@@ -70,7 +70,6 @@ class User extends CI_Model {
       'Nombre' => $this->input->post('nombre'), 
       'Apellido' => $this->input->post('apellido'), 
       'Mail' => addslashes( $this->input->post('email')), 
-      'Password' =>  md5(addslashes($this->input->post('password'))), 
       'Telefono' => $this->input->post('telefono'), 
       'Direccion' => $this->input->post('direccion'), 
       'Ciudad' => $this->input->post('ciudad'), 
@@ -79,6 +78,11 @@ class User extends CI_Model {
       'Pais' => $this->input->post('pais'),
       'Permisos'=> $this->input->post('tipo_reg')
    );
+   if($this->input->post('password') != "")
+   {
+     $data['Password'] =  md5(addslashes($this->input->post('password')));
+   }
+          
    $this->db->where('Id', $this->input->post('id'));
    return $this->db->update('usuarios', $data);
   }
