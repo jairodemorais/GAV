@@ -23,7 +23,6 @@
       <div id="contenedor_seccion">
         <div id="desplegable">
           <h5 class="tit_categoria_desp">Registro</h5>
-          <a href="#" class="top_ver_todas">Ver todas >></a>
         </div>  
         <div id="lateral_derecho">
           <ul id="lista_banners">
@@ -36,8 +35,7 @@
         <div id="lateral_izquierdo">
           <h1 class="tit_principal">Muchas Gracias!</h1>
           <h2 class="subtit_principal">Tus datos ha sido enviados correctamente. <br />
-            <?= $message ?>  
-            
+            <div><?= $message ?></div>
             <strong>Guía de Artes visuales</strong>.</h2>
             <h2 class="subtit_principal">Atentamente;<br />
               El Equipo de <strong>GAV</strong></h2>

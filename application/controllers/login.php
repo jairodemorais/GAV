@@ -6,6 +6,7 @@ class LogIn extends CI_Controller {
     parent::__construct();
     $this->load->model('user');
     $this->load->model('mail');
+    $this->load->model('categoria');
     $this->load->helper('form');
     $this->load->library('form_validation');
   }
@@ -54,6 +55,11 @@ class LogIn extends CI_Controller {
   function logout()
   {
     $this->session->unset_userdata('loggedin');
-    session_destroy();
+    $menuData["categories"] = $this->categoria->get_categories(6);
+    $menuDiv = $this->load->view('menu', $menuData, TRUE );
+    $buscarDiv = $this->load->view('buscar_artistas_sin_cat', $menuData, TRUE );
+    $this->data["menuDiv"] = $menuDiv;
+    $this->data["buscarDiv"] = $buscarDiv;
+    $this->load->view('index', $this->data);
   }
 }

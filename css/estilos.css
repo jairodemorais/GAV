@@ -64,7 +64,7 @@ ul {list-style-type:none;}
 #botonera_top li a {float:left;font-size:12px; color:#333; height:20px; padding:13px;}
 #botonera_top li a:hover {color:#FF3366; background:url(../img/dot_botonera.gif) no-repeat top center;}
 
-#login_top{float:right; width:220px; padding-top:10px;}
+#login_top{float:right; width:250px; padding-top:10px;}
 a.olvido_pass {float:left; font-size:12px; color:#333; padding: 4px 0 0 10px;}
 a.olvido_pass:hover {color:#FF3366;}
 
@@ -126,8 +126,9 @@ a.btn_login_home:hover {background:url(../img/btn/login_on.gif);}
 .cat_turquesa {background:url(../img/categorias/turquesa.gif);}
 .cat_naranja {background:url(../img/categorias/naranja.gif);}
 
-.user_welcome {width:147px; height:18px; background:url(../img/welcome_user.gif) top left no-repeat; font-size:12px; color:#FFFFFF; text-align:center; padding-top:2px;}
+.user_welcome {width:165px; height:18px; background:url(../img/welcome_user.gif) top left no-repeat; font-size:12px; color:#FFFFFF; text-align:center; padding-top:2px;}
 
+a#logOut {margin-left: 10px;}
 /*--------------------------- LATERAL DERECHO -----------------------*/
 
 #lateral_derecho {width:200px; float:right; padding-top:15px;}

@@ -12,16 +12,16 @@
   <?php endif; ?>
   <?php if(isset($categories)): ?>
     <ul id="botonera_bottom">
-      <li><a href="<?php echo base_url();?>buscar/cat/<?=$categories[0]->Id?>"><?=$categories[0]->Nombre?></a></li>
-      <li><a href="<?php echo base_url();?>buscar/cat/<?=$categories[1]->Id?>" ><?=$categories[1]->Nombre?></a></li>
+      <li><a href="<?php echo base_url();?>buscar/<?=$categories[0]->Nombre?>/<?=$categories[0]->Id?>/0"><?=$categories[0]->Nombre?></a></li>
+      <li><a href="<?php echo base_url();?>buscar/<?=$categories[1]->Nombre?>/<?=$categories[1]->Id?>/0" ><?=$categories[1]->Nombre?></a></li>
     </ul>
     <ul id="botonera_bottom">
-      <li><a href="<?php echo base_url();?>buscar/cat/<?=$categories[2]->Id?>"><?=$categories[2]->Nombre?></a></li>
-      <li><a href="<?php echo base_url();?>buscar/cat/<?=$categories[3]->Id?>"><?=$categories[3]->Nombre?></a></li>
+      <li><a href="<?php echo base_url();?>buscar/<?=$categories[2]->Nombre?>/<?=$categories[2]->Id?>/0"><?=$categories[2]->Nombre?></a></li>
+      <li><a href="<?php echo base_url();?>buscar/<?=$categories[3]->Nombre?>/<?=$categories[3]->Id?>/0"><?=$categories[3]->Nombre?></a></li>
     </ul>   
     <ul id="botonera_bottom" style="border:0;">
-      <li><a href="<?php echo base_url();?>buscar/cat/<?=$categories[4]->Id?>"><?=$categories[4]->Nombre?></a></li>
-      <li><a href="<?php echo base_url();?>buscar/cat/<?=$categories[5]->Id?>"><?=$categories[5]->Nombre?></a></li>
+      <li><a href="<?php echo base_url();?>buscar/<?=$categories[4]->Nombre?>/<?=$categories[4]->Id?>/0"><?=$categories[4]->Nombre?></a></li>
+      <li><a href="<?php echo base_url();?>buscar/<?=$categories[5]->Nombre?>/<?=$categories[5]->Id?>/0"><?=$categories[5]->Nombre?></a></li>
     </ul>  
     <?php endif; ?>
     <ul id="redes_soc_bottom">

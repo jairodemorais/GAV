@@ -9,7 +9,7 @@
     </ul>
     <ul id="lista_login_campos" style="border:0;">
       <li><p class="tit_form_log">Email</p><input id="userName" name="usuario" type="text" class="form_txt_login"/></li>
-      <li><p class="tit_form_log">Clave</p><input id="password" name="clave" type="text" class="form_txt_login"/></li>
+      <li><p class="tit_form_log">Clave</p><input id="password" name="clave" type="password" class="form_txt_login"/></li>
     </ul>
     <ul id="lista_login_mail" style="border:0;display:none;" class="box_olvido_pass">
       <p class="tit_form_log" style="width:320px;clear:both;float:left;margin-left:10px;">Ingrese el email de registracion al portal:</p>

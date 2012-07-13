@@ -59,7 +59,12 @@
             <?php if(isset($obras)): ?>
               <?php foreach ($obras as $res): ?>
                 <li>
-                  <div><? if (isset($res->Nombre)) { ?><a href="<? echo base_url();?>ampliar/<?=$res->Id?>" class="btn_ampliar_obra"><img width="135" height="105" src="<?= base_url()."backend/public_html/imagenes/obras/crop/".$res->Nombre;?>" /></a><? } ?></div>
+                  <div>
+                  <? if (isset($res->Nombre)): ?>
+                    <a href="<? echo base_url();?>ampliar/<?=$res->Id?>" class="btn_ampliar_obra">
+                      <img width="135" height="105" src="<?= base_url()."backend/public_html/imagenes/obras/crop/".$res->Nombre;?>" />
+                    </a>
+                  <? endif ?></div>
                   <a href="<? echo base_url();?>ampliar/<?=$res->Id?>" class="link_artista btn_ampliar_obra"><?= $res->Epigrafe?></a>
                 </li>
               <?php endforeach;?>

@@ -15,7 +15,7 @@
             <?php echo $buscarDiv; ?>
           </div>
           <img src="<?php echo base_url();?>img/gav_black.jpg" class="gav_icon_top"/> 
-        </div>  
+        </div>
         <?php include('application/views/nav2.php') ?>
       </div>
     </div>
@@ -39,10 +39,10 @@
           <?php else: ?>
             <h1 class="tit_principal">Registro</h1>
           <?php endif; ?>
-          <h2 class="subtit_principal">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</h2>
+          <h2 class="subtit_principal">Formá parte de la Guía de Artes Visuales y mantenete al tanto sobre todas las novedades y anuncios del mundo del arte!.</h2>
           <ul id="tipo_registro">
-            <li class="fondo_reg_free">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-            <li class="fondo_reg_premium">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+            <li class="fondo_reg_free">Registrandote gratuitamente, podrás suscribirte a nuestro newsletter y de ese modo recibirás todas nuestras novedades sobre nuevos artistas, noticias del mundo del arte y acceder a ver el valor de las obras de los artistas que forman parte de la guía.</li>
+            <li class="fondo_reg_premium">Como premiun, además de ser un socio exclusivo de GAV, podrás acceder a diversos beneficios y descuentos que obtendremos para vos. La suscripción como premium tiene un costo mensual ó anual, puedes pagarla como prefieras!.</li>
           </ul>
           <?php if (isset($errorMsg)): ?>
           <div class="error_campos"><?php echo $errorMsg ?></div>

@@ -5,6 +5,20 @@ class Anuncio extends CI_Model {
     $this->load->database();
   }
 
+  public function get_artists($num, $offset)
+  {
+    try {
+      if ($num == 0 && $offset == 0) {
+        $query = $this->db->get('anuncios');
+      } else {
+        $query = $this->db->get('anuncios', $num, $offset);
+      }
+      return $query;
+    } catch (Exception $e) {
+      echo 'Caught exception: ',  $e->getMessage(), "\n";
+    }
+  }
+
   public function get_artists_by_letter($letter,$num, $offset)
   {
     try {

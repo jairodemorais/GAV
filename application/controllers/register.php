@@ -1,7 +1,7 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class Register extends MY_Controller {
-  
+
   public function __construct()
   {
     parent::__construct();
@@ -17,13 +17,13 @@ class Register extends MY_Controller {
   public function index()
   {
     $this->data['recaptcha'] = $this->recaptcha->get_html();
-     $menuData["categories"] = $this->categoria->get_categories(6);
+    $menuData["categories"] = $this->categoria->get_categories(6);
     $buscarDiv = $this->load->view('buscar_artistas_form', $menuData, TRUE );
     $this->data["buscarDiv"] = $buscarDiv;
     $this->load->view('registro',$this->data);
     $this->load->view("pie", $menuData);
   }
-  
+
   function check_captcha($val) {
     if ($this->recaptcha->check_answer($this->input->ip_address(),$this->input->post('recaptcha_challenge_field'),$val)) {
       return TRUE;
@@ -32,7 +32,7 @@ class Register extends MY_Controller {
       return FALSE;
     }
   }
-  
+
   public function updateOrCreate()
   {
     $this->form_validation->set_rules('nombre', 'Nombre', 'required');

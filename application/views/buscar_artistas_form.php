@@ -1,4 +1,4 @@
-<?php echo form_open(base_url().'buscar/-') ?>
+<?php echo form_open(base_url().'buscar/-/0') ?>
 <input name="artist_value" type="text" class="search_top" value="<?php echo $this->session->userdata('artist_value') ?>"/>
 <input name="imageField2" type="image" src="<?php echo base_url();?>img/buscar_black.png" border="0" class="btn_buscar_top" >
 <?php if (isset($errorMsg)): ?>
@@ -7,7 +7,7 @@
 <ul id="categorias_top">
   <?php if(isset($categories)): ?>
     <?php foreach ($categories as $index=>$cat): ?>
-      <li><a href="<?php echo base_url();?>buscar/cat/<?=$cat->Id?>"><?= $cat->Nombre?></a></li>
+      <li><a href="<?php echo base_url();?>buscar/<?= $cat->Nombre?>/<?=$cat->Id?>/0"><?= $cat->Nombre?></a></li>
       <?php if ($index < count($categories) -1): ?>
         <li>|</li>
       <?php endif; ?>

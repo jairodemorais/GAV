@@ -43,7 +43,8 @@ class Contact extends MY_Controller {
       
       $menuData["categories"] = $this->categoria->get_categories(6);
       $buscarDiv = $this->load->view('buscar_artistas_form', $menuData, TRUE );
-      $this->data["buscarDiv"] = $buscarDiv;                                    
+      $this->data["buscarDiv"] = $buscarDiv;
+      $this->data["message"] = "Su mensaje ha sido enviado, a la brevedad sera contactado por un integrante de nuestro equipo.";                                    
       $this->load->view("confirmacion", $this->data);
     }
   }

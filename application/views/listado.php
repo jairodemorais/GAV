@@ -22,8 +22,10 @@
     <div id="contenedor_central"> 
       <div id="contenedor_seccion">
         <div id="desplegable">
-          <h5 class="tit_categoria_desp">Artistas</h5>
-          <a href="#" class="top_ver_todas">Ver todas >></a>
+          <h5 class="tit_categoria_desp"><?= $title ?></h5>
+          <?php if (isset($categorySearch)):?>
+            <a href="<?php echo base_url();?>buscar/todos/0" class="top_ver_todas">Ver todas >></a>
+          <?endif?>
         </div>
         <div id="lateral_derecho">
           <ul id="lista_banners">
@@ -37,32 +39,32 @@
           <div id="lista_alfabetico">
             <p class="tit_orden_alfa">Buscar por orden alfabetico</p>
             <ul>
-              <li><a href="<?php echo base_url();?>buscar/A">A</a></li>
-              <li><a href="<?php echo base_url();?>buscar/B">B</a></li>
-              <li><a href="<?php echo base_url();?>buscar/C">C</a></li>
-              <li><a href="<?php echo base_url();?>buscar/D">D</a></li>
-              <li><a href="<?php echo base_url();?>buscar/E">E</a></li>
-              <li><a href="<?php echo base_url();?>buscar/F">F</a></li>
-              <li><a href="<?php echo base_url();?>buscar/G">G</a></li>
-              <li><a href="<?php echo base_url();?>buscar/H">H</a></li>
-              <li><a href="<?php echo base_url();?>buscar/I">I</a></li>
-              <li><a href="<?php echo base_url();?>buscar/J">J</a></li>
-              <li><a href="<?php echo base_url();?>buscar/K">K</a></li>
-              <li><a href="<?php echo base_url();?>buscar/L">L</a></li>
-              <li><a href="<?php echo base_url();?>buscar/M">M</a></li>
-              <li><a href="<?php echo base_url();?>buscar/N">N</a></li>
-              <li><a href="<?php echo base_url();?>buscar/Ñ">Ñ</a></li>
-              <li><a href="<?php echo base_url();?>buscar/O">O</a></li>
-              <li><a href="<?php echo base_url();?>buscar/P">P</a></li>
-              <li><a href="<?php echo base_url();?>buscar/Q">Q</a></li>
-              <li><a href="<?php echo base_url();?>buscar/R">R</a></li>
-              <li><a href="<?php echo base_url();?>buscar/S">S</a></li>
-              <li><a href="<?php echo base_url();?>buscar/T">T</a></li>
-              <li><a href="<?php echo base_url();?>buscar/U">U</a></li>
-              <li><a href="<?php echo base_url();?>buscar/V">V</a></li>
-              <li><a href="<?php echo base_url();?>buscar/X">X</a></li>
-              <li><a href="<?php echo base_url();?>buscar/Y">Y</a></li>
-              <li><a href="<?php echo base_url();?>buscar/Z">Z</a></li>
+              <li><a href="<?php echo base_url();?>buscar/A/0">A</a></li>
+              <li><a href="<?php echo base_url();?>buscar/B/0">B</a></li>
+              <li><a href="<?php echo base_url();?>buscar/C/0">C</a></li>
+              <li><a href="<?php echo base_url();?>buscar/D/0">D</a></li>
+              <li><a href="<?php echo base_url();?>buscar/E/0">E</a></li>
+              <li><a href="<?php echo base_url();?>buscar/F/0">F</a></li>
+              <li><a href="<?php echo base_url();?>buscar/G/0">G</a></li>
+              <li><a href="<?php echo base_url();?>buscar/H/0">H</a></li>
+              <li><a href="<?php echo base_url();?>buscar/I/0">I</a></li>
+              <li><a href="<?php echo base_url();?>buscar/J/0">J</a></li>
+              <li><a href="<?php echo base_url();?>buscar/K/0">K</a></li>
+              <li><a href="<?php echo base_url();?>buscar/L/0">L</a></li>
+              <li><a href="<?php echo base_url();?>buscar/M/0">M</a></li>
+              <li><a href="<?php echo base_url();?>buscar/N/0">N</a></li>
+              <li><a href="<?php echo base_url();?>buscar/Ñ/0">Ñ</a></li>
+              <li><a href="<?php echo base_url();?>buscar/O/0">O</a></li>
+              <li><a href="<?php echo base_url();?>buscar/P/0">P</a></li>
+              <li><a href="<?php echo base_url();?>buscar/Q/0">Q</a></li>
+              <li><a href="<?php echo base_url();?>buscar/R/0">R</a></li>
+              <li><a href="<?php echo base_url();?>buscar/S/0">S</a></li>
+              <li><a href="<?php echo base_url();?>buscar/T/0">T</a></li>
+              <li><a href="<?php echo base_url();?>buscar/U/0">U</a></li>
+              <li><a href="<?php echo base_url();?>buscar/V/0">V</a></li>
+              <li><a href="<?php echo base_url();?>buscar/X/0">X</a></li>
+              <li><a href="<?php echo base_url();?>buscar/Y/0">Y</a></li>
+              <li><a href="<?php echo base_url();?>buscar/Z/0">Z</a></li>
             </ul>
           </div>
           <?php if (isset($errorMsg)): ?>
@@ -76,7 +78,9 @@
               <?php $n++; endforeach;?>
             <?php endif; ?>
           </ul>
+          <div id="PAG">
             <?php echo $this->pagination->create_links(); ?>
+          </div>
         </div>
       </div>
     </div>

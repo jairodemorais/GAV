@@ -56,6 +56,9 @@ class Newsboard extends MY_Controller {
     
     $buscarDiv = $this->load->view('buscar_artistas_form', $menuData, TRUE );
     $data["buscarDiv"] = $buscarDiv;
+    $session_data = $this->session->userdata('loggedin');
+    $data['name'] = $session_data['name'];
+    $data['username'] = $session_data['username'];
     
     $this->load->view("newsboard", $data);
     $this->load->view("pie", $menuData);
@@ -66,6 +69,9 @@ class Newsboard extends MY_Controller {
     $menuData["categories"] = $this->categoria->get_categories(6);
     $buscarDiv = $this->load->view('buscar_artistas_form', $menuData, TRUE );
     $data["buscarDiv"] = $buscarDiv;
+    $session_data = $this->session->userdata('loggedin');
+    $data['name'] = $session_data['name'];
+    $data['username'] = $session_data['username'];
     
     $this->load->view("ampliar_novedades", $data);
     

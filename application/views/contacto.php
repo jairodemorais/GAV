@@ -4,7 +4,7 @@
     <?php echo validation_errors(); ?>
     <?php echo form_open('contact/create') ?>
       <h1>Contacto</h1>
-      <h2>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</h2>
+      <h2>Completa los siguientes datos con tus comentarios ó sugerencias. A la brevedad nos comunicaremos contigo!.</h2>
       <ul class="lista_contacto">
         <li class="lista_cont_corto">
           <p>Nombre</p>
