@@ -53,7 +53,6 @@
               <li><a href="<?php echo base_url();?>buscar/L/0">L</a></li>
               <li><a href="<?php echo base_url();?>buscar/M/0">M</a></li>
               <li><a href="<?php echo base_url();?>buscar/N/0">N</a></li>
-              <li><a href="<?php echo base_url();?>buscar/Ñ/0">Ñ</a></li>
               <li><a href="<?php echo base_url();?>buscar/O/0">O</a></li>
               <li><a href="<?php echo base_url();?>buscar/P/0">P</a></li>
               <li><a href="<?php echo base_url();?>buscar/Q/0">Q</a></li>
@@ -74,7 +73,14 @@
           <ul id="listado_artistas">
             <?php if(isset($artists)): ?>
               <?php $n=0; foreach ($artists as $res): ?>
-                <li><div><? if (isset($res->Imagen)) {?><img width="135" height="105" src="<?php echo base_url();?>backend/public_html/imagenes/obras/thumb/<?=$res->Imagen?>" /><? } ?></div><a href="<?php echo base_url();?>artista/<? echo  url_title ($res->Nombre); ?>/<?=$res->Id?>" class="link_artista"><?= $res->Nombre?></a></li>
+                <li>
+                  <div>
+                  <? if (isset($res->Imagen)) {?>
+                    <img width="135" height="105" src="<?php echo base_url();?>backend/public_html/imagenes/obras/thumb/<?=$res->Imagen?>" />
+                  <? } ?>
+                  </div>
+                  <a href="<?php echo base_url();?>artista/<? echo  url_title ($res->Nombre); ?>/<?=$res->Id?>" class="link_artista"><?= $res->Nombre?></a>
+                </li>
               <?php $n++; endforeach;?>
             <?php endif; ?>
           </ul>

@@ -51,6 +51,6 @@ function init() {
       window.location.reload();
     });
   });
-}
+};
 
 

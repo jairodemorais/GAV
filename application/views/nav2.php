@@ -9,7 +9,7 @@
   <?php if (isset($username)): ?>
     <ul>
       <li><p id='welcome' class="user_welcome">Bienvenido, <b id="displayName"><?php echo $name; ?></b></p></li>
-      <li><a id='profile' href="./perfil" class="botones_home">Mi Perfil</a></li>
+      <li><a id='profile' href="<?php echo base_url();?>perfil" class="botones_home">Mi Perfil</a></li>
       <li><a id='logOut' href="<?php echo base_url();?>login/logout"><img src="<?php echo base_url();?>img/logout.gif" /></a></li>
     <ul>
     <?php else: ?>
@@ -17,6 +17,7 @@
       <a href="#login" class="olvido_pass fancy">¿Olvidaste tu contraseña?</a>
     <?php endif; ?>
 </div>   
+
 
 <?php include('application/views/login.php') ?>
 <?php include('application/views/contacto.php') ?>

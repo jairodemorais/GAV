@@ -11,7 +11,7 @@
     
     <?php if (isset($name)): ?>
       <li><p id='welcome' class="user_welcome">Bienvenido, <b id="displayName"><?php echo $name; ?></b></p></li>
-      <li><a id='profile' href="./perfil" class="botones_home">Mi Perfil</a></li>
+      <li><a id='profile' href="<?php echo base_url();?>perfil" class="botones_home">Mi Perfil</a></li>
       <li><a id='logOut' href="<?php echo base_url();?>login/logout"><img src="<?php echo base_url();?>img/logout.gif" /></a></li>
     <?php else: ?>
       <li><a id='loginButton' href="#login" class="btn_login_home btn_login"></a></li>

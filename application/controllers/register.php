@@ -78,10 +78,11 @@ class Register extends MY_Controller {
                                                      'Nombre' => $this->input->post('nombre'),
                                                      'Apellido' => $this->input->post('apellido'),
                                                      'UserEmail' => $this->input->post('email')));
-          
-          $this->data['message'] = 'A la brevedad recibirás un correo confirmando tu solicitud de registro';
+          $this->data['conf_title'] = "Registro";
+          $this->data['message'] = 'Tus datos ha sido enviados correctamente. <br /> A la brevedad recibirás un correo confirmando tu solicitud de registro';
           $this->load->view('confirmacion', $this->data);
         } else {
+          $this->data['conf_title'] = "Mis datos";
           $this->data['message'] = 'Tus datos han sido actualizados correctamente.';
           $this->load->view('confirmacion', $this->data);
         }

@@ -38,14 +38,13 @@ class Anuncio extends CI_Model {
   public function get_artists_by_value($value, $num, $offset)
   {
     try {
-	
-	  $this->db->select('anuncios.Nombre as Nombre, anuncios.Id as Id, anuncios.Mail as Mail, obras.Nombre as Imagen');
-	  $this->db->join('obras', 'anuncios.Id = obras.Id');
-    $this->db->like('anuncios.Nombre', $value);
-    $this->db->or_like('anuncios.Descripcion', $value);
-    $this->db->or_like('anuncios.Mail', $value);
-	  $this->db->group_by("anuncios.Nombre"); 
-	  $this->db->order_by("anuncios.Nombre", "ASC"); 
+      $this->db->select('anuncios.Nombre as Nombre, anuncios.Id as Id, anuncios.Mail as Mail, obras.Nombre as Imagen');
+      $this->db->join('obras', 'anuncios.Id = obras.Id');
+      $this->db->like('anuncios.Nombre', $value);
+      $this->db->or_like('anuncios.Descripcion', $value);
+      $this->db->or_like('anuncios.Mail', $value);
+      $this->db->group_by("anuncios.Nombre"); 
+      $this->db->order_by("anuncios.Nombre", "ASC"); 
 
       if ($num == 0 && $offset == 0) {
         $query = $this->db->get('anuncios');

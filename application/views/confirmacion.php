@@ -22,7 +22,7 @@
     <div id="contenedor_central"> 
       <div id="contenedor_seccion">
         <div id="desplegable">
-          <h5 class="tit_categoria_desp">Registro</h5>
+          <h5 class="tit_categoria_desp"><?= $conf_title?></h5>
         </div>  
         <div id="lateral_derecho">
           <ul id="lista_banners">
@@ -34,7 +34,7 @@
         </div>
         <div id="lateral_izquierdo">
           <h1 class="tit_principal">Muchas Gracias!</h1>
-          <h2 class="subtit_principal">Tus datos ha sido enviados correctamente. <br />
+          <h2 class="subtit_principal">
             <div><?= $message ?></div>
             <strong>Guía de Artes visuales</strong>.</h2>
             <h2 class="subtit_principal">Atentamente;<br />
