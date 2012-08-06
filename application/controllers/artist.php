@@ -22,18 +22,18 @@ class Artist extends MY_Controller {
     $config = $this->get_page_config();
     $config['uri_segment'] = '3';
     $config['base_url'] = base_url().'buscar/todos';
-	$config['num_links'] = 2;
+	  $config['num_links'] = 2;
     //query para contar el total de anuncios
     $config['total_rows'] = $this->anuncio->get_artists(0, 0)->num_rows();
-	$config['per_page'] = 15; 
-	$config['full_tag_open'] = "<ul id='paginador'>";
-	$config['full_tag_close'] = '</ul>';
-	$config['prev_link'] = 'Anterior';
-	$config['next_link'] = 'Siguiente';
-	$config['cur_tag_open'] = "<span class='current'>";
-	$config['cur_tag_close'] = '</span>';
+	  $config['per_page'] = 15; 
+	  $config['full_tag_open'] = "<ul id='paginador'>";
+	  $config['full_tag_close'] = '</ul>';
+	  $config['prev_link'] = 'Anterior';
+	  $config['next_link'] = 'Siguiente';
+	  $config['cur_tag_open'] = "<span class='current'>";
+	  $config['cur_tag_close'] = '</span>';
 	
-	$this->pagination->initialize($config);
+	  $this->pagination->initialize($config);
 
     $data['artists'] = $artists->result();
     $data["title"] = "Resultados de busqueda";

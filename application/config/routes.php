@@ -42,6 +42,7 @@ $route['default_controller'] = "home";
 $route['inicio'] = 'home';
 $route['registro'] = 'register';
 $route['perfil'] = "register/get";
+$route['buscar/todos'] = "artist/index";
 $route['buscar/todos/:num'] = "artist/index";
 $route['buscar/([A-Z | -])/:num'] = "artist/find/$1";
 $route['buscar/:any/(:num)/:num'] = "artist/find_by_category/$1";

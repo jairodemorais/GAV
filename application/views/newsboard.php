@@ -19,11 +19,7 @@
           <div id="centro_newsboard">
           
             <div id="cont_botonera">
-              <ul id="redes_soc">
-                <li><a href="#" class="icon_face"></a></li>
-                <li><a href="#" class="icon_twitter"></a></li>
-              </ul>
-              <?php include('application/views/nav2.php') ?>
+              <?php include('application/views/nav.php') ?>
              </div>
             <div id="buscador_newsboard">
               <img src="<?php echo base_url();?>img/logo_news.gif" />
