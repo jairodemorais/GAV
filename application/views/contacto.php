@@ -15,11 +15,11 @@
         </li>
         <li class="lista_cont_largo">
           <p class="lista_p_largo">Comentarios</p>
-          <input id="contactMessage" type="textarea" name="Comentario" class="form_txt_contacto form_multi" />
+          <textarea id="contactMessage" name="Comentario" class="form_txt_contacto form_multi" /></textarea>
         </li>
         <li class="lista_cont_largo">
           <div id="captcha_cont">
-            <input type="button" name="imageField2" onClick="sendContactData()" style="background-image:url('img/forms/btn_enviar.jpg'); width: 121px; height: 35px;" border="0" class="btn_enviar_form" />          
+            <input type="button" name="imageField2" onClick="sendContactData()" style="background-image:url('<?php echo base_url();?>img/forms/btn_enviar.jpg'); width: 121px; height: 35px;" border="0" class="btn_enviar_form" />          
           </div>     
         </li>
       </ul>
@@ -39,15 +39,15 @@
     var message = "";
     if ($('#contactName').val() == "")
     {
-      message += "Debe ingresar un nombre.";
+      $('#contactName').val("Debe ingresar un nombre.");
     }
     if ($('#contactMail').val() == "")
     {
-      message += "Debe ingresar un Mail.";
+      $('#contactMail').val("Debe ingresar un Mail.");
     }
     if ($('#contactMessage').val() == "")
     {
-      message += "Debe ingresar un Mensaje.";
+      $('#contactMessage').val("Debe ingresar un Mensaje.");
     }
     if (message != ""){
       $('#contactError').text(message);

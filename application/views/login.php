@@ -5,7 +5,7 @@
     <h2>Ingresa los siguientes datos para ingresar a la Guia:</h2>
     <ul id="lista_login_tab" style="margin-bottom:0px !important;">
       <li><a href="#" id="bt_acceder" class="login_btn_gris">Acceder al sitio</a></li>
-      <li><a href="./registro" class="login_btn_gris">Crear nuevo usuario</a></li>
+      <li><a href="<?php echo base_url();?>registro" class="login_btn_gris">Crear nuevo usuario</a></li>
     </ul>
     <ul id="lista_login_campos" style="border:0;">
       <li><p class="tit_form_log">Email</p><input id="userName" name="usuario" type="text" class="form_txt_login"/></li>

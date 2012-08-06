@@ -6,9 +6,9 @@
 <?php endif; ?>
 <ul id="categorias_top">
   <?php if(isset($categories)): ?>
-    <?php foreach ($categories as $index=>$cat): ?>
-      <li><a href="<?php echo base_url();?>buscar/<?= $cat->Nombre?>/<?=$cat->Id?>/0"><?= $cat->Nombre?></a></li>
-      <?php if ($index < count($categories) -1): ?>
+    <?php $n=0; foreach ($categories as $item): ?>
+      <li><a href="<?php echo base_url();?>buscar/<? echo url_title($item["Nombre"]);?>/<? echo $item["Id"];?>/0"><? echo $item["Nombre"];?></a></li>
+      <?php $n++; if ($n < count($categories)): ?>
         <li>|</li>
       <?php endif; ?>
     <?php endforeach;?>

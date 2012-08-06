@@ -84,7 +84,7 @@
               <?php $n++; endforeach;?>
             <?php endif; ?>
           </ul>
-          <div id="PAG">
+          <div id="alinear_paginador">
             <?php echo $this->pagination->create_links(); ?>
           </div>
         </div>

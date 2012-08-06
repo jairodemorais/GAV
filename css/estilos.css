@@ -108,14 +108,14 @@ a.btn_login_home:hover {background:url(../img/btn/login_on.gif);}
 .search_home {width:370px; height:30px; background:url(../img/buscar_home.png) no-repeat top center; padding:12px 15px 10px 15px; float:left; *padding-left:80px;}
 .btn_buscar_home {float:left; margin:8px 0px 0px 10px;}
 
-#categorias_home {float:left; width:800px; padding-top:20px; margin-left:90px; _margin-left:45px;}
-#categorias_home li {float:left;  position:relative; width:130px;}
+#categorias_home {float:left; width:990px; padding-top:20px; margin-left:5px; _margin-left:35px;}
+#categorias_home li {float:left;  position:relative; width:120px; margin-left:5px;margin-right:5px;}
 #categorias_home ul {width:130px; position:absolute; left:0px; top:26px;  display:none; list-style:none;  margin-left:15px;}
 #categorias_home li:hover > ul {display:block; background-color:#FFFFFF;}
 
 .margen_izq_cat {padding-right:15px; padding-left:15px;}
 
-.submenu_home {float:left; width:130px; font-size:12px; text-align:center; text-decoration:none; color:#666666; padding:5px 0px 5px 0px;}
+.submenu_home {text-align:left;float:left; width:100%; font-size:12px; text-decoration:none; color:#666666; padding:5px 0px 5px 0px;}
 .submenu_home:hover {text-decoration:underline; color:#000000;}
 
 .cats_home {width:130px; height:22px; background:top left no-repeat; font-size:14px; color:#FFFFFF; float:left; text-align:center; padding-top:4px;}
@@ -172,13 +172,19 @@ a.link_artista:hover {text-decoration:underline;}
 #alinear_paginador {width:765px;text-align:center;float:left;left:50%; height:48px; background: url(../img/fondo_alfabetico.jpg) center left no-repeat; padding:0px}
 ul#paginador {max-width:765px; width:auto; display:inline-block; text-align:center; margin:0 auto; right:50%;  }
 
-ul#paginador li {float:left; padding:0 2px 0 1px;}
+ul#paginador li {float:left; }
 
-a.pages_num {float:left;width:15px; height:30px; text-align:left; color:#333;  padding-top:16px; padding-left:2px; }
-a.pages_num:hover {color:#FFF; background:url(../img/bg_alfabetico.jpg) center top #ff3399;}
+.pages_num a {float:left;width:15px; height:30px; text-align:left; color:#333;  padding-top:16px; padding-left:2px; }
+.pages_num a:hover {color:#FFF; background:url(../img/bg_alfabetico.jpg) center top #ff3399;}
 
-a.pages_txt {float:left;width:120px; height:30px; text-align:left; color:#333;  padding-top:16px; padding-left:2px; text-align:center;}
-a.pages_txt:hover {text-decoration:underline;}
+.pages_txt {float:left; height:30px; text-align:left; color:#333;  padding-top:16px; padding-right:10px; padding-left:2px; text-align:center;}
+
+.current {float:left;width:15px; height:30px; text-align:left; color:#333;  padding-top:16px; padding-left:2px; color:#FFF; background:url(../img/bg_alfabetico.jpg) center top #ff3399;}
+
+
+.pages_txt a{ float:left; height:30px; text-align:left; color:#333;  padding-right:10px; padding-left:2px; text-align:center;}
+
+.pages_txt a:hover{ text-decoration:underline;}
 
 /*------------------------------- PROVEEDORES ---------------------------*/
 ul#listado_proveedores {float:left; width:765px; padding:20px 0 10px  7px;}
@@ -227,7 +233,7 @@ ul#contacto_prov {width:675px; float:left; padding-top:10px;}
 
 /*------------------------------- FANCYBOX PROVEEDORES ----------------------------------*/
 .div_obras {background-color:#FFFFFF;padding:10px;overflow:hidden;}
-.div_obras div{float:left; width:600px;height:300px; overflow:hidden;}
+.div_obras .imagen{float:left; width:600px;height:400px; overflow:hidden;}
 
 ul.datos_obra {width:220px; float:left; padding-left:15px;}
 
