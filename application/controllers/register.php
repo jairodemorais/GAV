@@ -40,10 +40,17 @@ class Register extends MY_Controller {
     $this->form_validation->set_rules('email', 'E-mail', 'required');
     
     $this->form_validation->set_message('required', 'Debes ingresar un %s. ');
+
+    $menuData["categories"] = $this->categoria->get_categories(6);
+    $buscarDiv = $this->load->view('buscar_artistas_form', $menuData, TRUE );
+    $this->data["buscarDiv"] = $buscarDiv;
+
     
     if ($this->form_validation->run() === FALSE || $this->check_captcha($this->input->post('recaptcha_response_field')) == FALSE)
     {
-      $this->load->view('registro',array('recaptcha'=>$this->recaptcha->get_html(), 'errorMsg' => "Alguno de los valores ingresados no es correcto."));
+      $this->data["recaptcha"] = $this->recaptcha->get_html();
+      $this->data["errorMsg"] = "Alguno de los valores ingresados no es correcto.";
+      $this->load->view('registro', $this->data);
     }
     else
     {
@@ -63,9 +70,7 @@ class Register extends MY_Controller {
         $result = $this->user->update();
         $id = $this->input->post('id');
       }
-      $menuData["categories"] = $this->categoria->get_categories(6);
-      $buscarDiv = $this->load->view('buscar_artistas_form', $menuData, TRUE );
-      $this->data["buscarDiv"] = $buscarDiv;
+      
       if ($result == true)
       {
         if ($action == "create")
