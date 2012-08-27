@@ -17,23 +17,19 @@ class Artist extends MY_Controller {
     } else {
       $offset = $this->uri->segment(3);
     }
-    $artists = $this->anuncio->get_artists(15, $offset);
 
-    $config = $this->get_page_config();
+    $cantidad = 15;
+    
+    $artists = $this->anuncio->get_artists($cantidad, $offset);
+    $config = $this->get_page_config($cantidad);
     $config['uri_segment'] = '3';
     $config['base_url'] = base_url().'buscar/todos';
-	  $config['num_links'] = 2;
+    $config['num_links'] = 2;
     //query para contar el total de anuncios
     $config['total_rows'] = $this->anuncio->get_artists(0, 0)->num_rows();
-	  $config['per_page'] = 15; 
-	  $config['full_tag_open'] = "<ul id='paginador'>";
-	  $config['full_tag_close'] = '</ul>';
-	  $config['prev_link'] = 'Anterior';
-	  $config['next_link'] = 'Siguiente';
-	  $config['cur_tag_open'] = "<span class='current'>";
-	  $config['cur_tag_close'] = '</span>';
-	
-	  $this->pagination->initialize($config);
+  $config['per_page'] = $cantidad; 
+  
+  $this->pagination->initialize($config);
 
     $data['artists'] = $artists->result();
     $data["title"] = "Resultados de busqueda";
@@ -51,26 +47,29 @@ class Artist extends MY_Controller {
   
   public function find($letter)
   {
-    if($this->uri->segment(4) == ""){
+    if($this->uri->segment(3) == ""){
       $offset = 0;
     } else {
-      $offset = $this->uri->segment(4);
+      $offset = $this->uri->segment(3);
     }
-    if($letter[0] == '-')
+
+  $cantidad = 15;
+    
+  if($letter[0] == '-')
     {
       if($this->input->post('artist_value') != ""){
         $this->session->set_userdata('artist_value', $this->input->post('artist_value'));
       }
-      $artists = $this->anuncio->get_artists_by_value($this->session->userdata('artist_value'),15,$offset);
+      $artists = $this->anuncio->get_artists_by_value($this->session->userdata('artist_value'),$cantidad,$offset);
       $config['total_rows'] = $this->anuncio->get_artists_by_value($this->session->userdata('artist_value'),0,0)->num_rows();
     } else
     {
-      $artists = $this->anuncio->get_artists_by_letter($letter[0], 15,$offset);
+      $artists = $this->anuncio->get_artists_by_letter($letter[0], $cantidad,$offset);
       $config['total_rows'] = $this->anuncio->get_artists_by_letter($letter[0],0,0)->num_rows();
     }
     
-    $config = $this->get_page_config();
-    $config['uri_segment'] = '4';
+    $config = $this->get_page_config($cantidad);
+    $config['uri_segment'] = '3';
     $config['base_url'] = base_url().'artist/find/'.$letter[0];
     $this->pagination->initialize($config);
     
@@ -107,21 +106,27 @@ class Artist extends MY_Controller {
     $this->load->view('detalle_artista', $data);
     $this->load->view('pie', $menuData);
   }
+
   public function find_by_category($id)
   {
-    if($this->uri->segment(5) == ""){
+  
+    $cantidad = 5;
+  
+    if($this->uri->segment(4) == ""){
       $offset = 0;
     } else {
-      $offset = $this->uri->segment(5);
+      $offset = $this->uri->segment(4);
     }
-    $artists = $this->anuncio->get_artists_by_category($id, 15, $offset);
 
-    $config = $this->get_page_config();
+    $artists = $this->anuncio->get_artists_by_category($id, $cantidad, $offset);
+
+    $config = $this->get_page_config($cantidad);
     $config['total_rows'] = $this->anuncio->get_artists_by_category($id, 0, 0)->num_rows();
-    $config['uri_segment'] = '5';
-    $config['base_url'] = base_url().'artist/find_by_category/'.$id;
-
+    $config['uri_segment'] = '4';
+    $config['base_url'] = base_url().'artist/find_by_category/'.$id."/";
+  $config['num_links'] = 4;
     $this->pagination->initialize($config);
+  
     if($artists->num_rows() > 0)
     {
       $data['artists'] = $artists->result();
@@ -147,17 +152,17 @@ class Artist extends MY_Controller {
     $this->load->view('pie', $menuData);
   }
   
-  function get_page_config()
+  function get_page_config($cantidad)
   {
-    $config['per_page'] = '15';
+    $config['per_page'] = $cantidad;
     $config['full_tag_open'] = '<ul id="paginador">';
     $config['full_tag_close'] = '</ul>';
     
-    $config['next_link'] = 'Pagina siguiente &gt;';
+    $config['next_link'] = '>';
     $config['next_tag_open'] = '<li class="pages_txt">';
     $config['next_tag_close'] = '</li>';
     
-    $config['prev_link'] = '&lt; Pagina anterior';
+    $config['prev_link'] = '<';
     $config['prev_tag_open'] = '<li class="pages_txt">';
     $config['prev_tag_close'] = '</li>';
     
@@ -167,12 +172,12 @@ class Artist extends MY_Controller {
     $config['cur_tag_open'] = '<li class="pages_txt">';
     $config['cur_tag_close'] = '</li>';
     
-    $config['last_link'] = 'Ultima pagina &gt;&gt;';
+    $config['last_link'] = 'Fin';
     $config['last_tag_open'] = '<li class="pages_txt">';
     $config['last_tag_close'] = '</li>';
     
-    $config['first_link'] = '&lt;&lt; Primer pagina';
-    $config['first_tag_open'] = '<li class="pages_txt>';
+    $config['first_link'] = 'Inicio';
+    $config['first_tag_open'] = '<li class="pages_txt">';
     $config['first_tag_close'] = '</li>';
     
     return $config;

@@ -46,7 +46,7 @@ class Anuncio extends CI_Model {
   public function get_artists_by_value($value, $num, $offset)
   {
     
-	$this->db->select('anuncios.Nombre as Nombre, anuncios.Id as Id, anuncios.Mail as Mail, obras.Nombre as Imagen');
+  $this->db->select('anuncios.Nombre as Nombre, anuncios.Id as Id, anuncios.Mail as Mail, obras.Nombre as Imagen');
     $this->db->join('obras', 'anuncios.Id = obras.Id_anuncio');
     $this->db->like('anuncios.Nombre', $value);
     $this->db->or_like('anuncios.Descripcion', $value);
@@ -72,9 +72,15 @@ class Anuncio extends CI_Model {
     try {
         $this->db->select('anuncios.Nombre as Nombre, anuncios.Id as Id, anuncios.Mail as Mail, obras.Nombre as Imagen');
         $this->db->join('obras', 'anuncios.Id = obras.Id_anuncio');
-		$this->db->group_by("anuncios.Nombre"); 
-		$this->db->order_by("anuncios.Nombre", "ASC"); 
-	    $query = $this->db->get_where('anuncios',array('anuncios.Id_categoria'=>$categoryId), $num, $offset);
+    $this->db->group_by("anuncios.Nombre"); 
+    $this->db->order_by("anuncios.Nombre", "ASC"); 
+      if ($num == 0 && $offset == 0) {
+      $query = $this->db->get_where('anuncios',array('anuncios.Id_categoria'=>$categoryId));
+      } else
+      {
+      $query = $this->db->get_where('anuncios',array('anuncios.Id_categoria'=>$categoryId), $num, $offset);
+      }
+
         return $query;
     } catch (Exception $e) {
       echo 'Caught exception: ',  $e->getMessage(), "\n";
@@ -84,19 +90,19 @@ class Anuncio extends CI_Model {
   public function get_artists_by_id ($id) 
   {
   
-	try {
-	
+  try {
+  
       $this->db->select('anuncios.Nombre as Nombre, anuncios.Id as Id, anuncios.Mail as Mail, anuncios.Descripcion as Descripcion, anuncios.Video as Video, anuncios.Web as Web, anuncios.Direccion as Direccion, anuncios.Telefono as Telefono, obras.Nombre as Imagen');
       $this->db->join('obras', 'anuncios.Id = obras.Id_anuncio');
-	  $this->db->group_by("anuncios.Nombre"); 
-	  $this->db->order_by("anuncios.Nombre", "ASC"); 
+    $this->db->group_by("anuncios.Nombre"); 
+    $this->db->order_by("anuncios.Nombre", "ASC"); 
       $query = $this->db->get_where('anuncios',array('anuncios.Id'=>$id));
       return $query->row_array();
 
     } catch (Exception $e) {
       echo 'Caught exception: ',  $e->getMessage(), "\n";
     }
-	
+  
   }
 
   public function get_obras($anuncio)
