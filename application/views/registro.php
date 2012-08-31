@@ -115,9 +115,9 @@
                 </p>
                 <?php
                 $data = array(
-                  'name'        => 'tipo_reg',
+                  'name'        => 'permisos',
                   'value'       => 'Free',
-                  'checked'     => TRUE,
+                  'checked'     => ($user['Permisos'] == "Free"),
                   'class'       =>'form_option',
                   );
                   echo form_radio($data); ?>
@@ -126,8 +126,9 @@
                 </p> 
                 <?php
                 $data = array(
-                  'name'        => 'tipo_reg',
+                  'name'        => 'permisos',
                   'value'       => 'Premium',
+                  'checked'     => ($user['Permisos'] == "Premium"),
                   'class'       =>'form_option',
                   );
                   echo form_radio($data); ?>
@@ -195,12 +196,6 @@
                   'class'       => 'campos_reg',
                   );
                 echo form_input($data) ?>
-              </li>
-              <li>
-                <p>Captcha</p>
-                <div class="captcha_reg">
-                  <?= $recaptcha ?>
-                </div>  
               </li>
             </ul>
           </form>

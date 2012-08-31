@@ -9,30 +9,17 @@ class Register extends MY_Controller {
     $this->load->model('mail');
     $this->load->model('categoria');
     $this->load->helper('form');
-    $this->load->library('recaptcha');
-    $this->lang->load('recaptcha');
     $this->load->helper('url'); 
   }
 
   public function index()
   {
-    $this->data['recaptcha'] = $this->recaptcha->get_html();
     $menuData["categories"] = $this->categoria->get_categories(6);
     $buscarDiv = $this->load->view('buscar_artistas_form', $menuData, TRUE );
     $this->data["buscarDiv"] = $buscarDiv;
     $this->load->view('registro',$this->data);
     $this->load->view("pie", $menuData);
   }
-
-  function check_captcha($val) {
-    if ($this->recaptcha->check_answer($this->input->ip_address(),$this->input->post('recaptcha_challenge_field'),$val)) {
-      return TRUE;
-    } else {
-      $this->form_validation->set_message('check_captcha',$this->lang->line('recaptcha_incorrect_response'));
-      return FALSE;
-    }
-  }
-
   public function updateOrCreate()
   {
     $this->form_validation->set_rules('nombre', 'Nombre', 'required');
@@ -46,9 +33,8 @@ class Register extends MY_Controller {
     $this->data["buscarDiv"] = $buscarDiv;
 
     
-    if ($this->form_validation->run() === FALSE || $this->check_captcha($this->input->post('recaptcha_response_field')) == FALSE)
+    if ($this->form_validation->run() === FALSE )
     {
-      $this->data["recaptcha"] = $this->recaptcha->get_html();
       $this->data["errorMsg"] = "Alguno de los valores ingresados no es correcto.";
       $this->load->view('registro', $this->data);
     }
@@ -60,7 +46,7 @@ class Register extends MY_Controller {
       {
         if($this->input->post('password') == "")
         {
-          $this->load->view('registro',array('recaptcha'=>$this->recaptcha->get_html(), 'errorMsg' => "Debes ingresar una clave para crear un usuario."));
+          $this->load->view('registro',array('errorMsg' => "Debes ingresar una clave para crear un usuario."));
           return;
         }
         $result = $this->user->create();
@@ -121,7 +107,6 @@ class Register extends MY_Controller {
         redirect('home');
       } else {
         $this->data['user'] = $this->user->get($this->data['username']);
-        $this->data['recaptcha'] = $this->recaptcha->get_html();
         $menuData["categories"] = $this->categoria->get_categories(6);
         $buscarDiv = $this->load->view('buscar_artistas_form', $menuData, TRUE );
         $this->data["buscarDiv"] = $buscarDiv;

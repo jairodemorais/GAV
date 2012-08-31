@@ -39,7 +39,7 @@ class User extends CI_Model {
         'Provincia' => $this->input->post('provincia'),  
         'CP' => $this->input->post('cp'), 
         'Pais' => $this->input->post('pais'),
-        'Permisos'=> $this->input->post('tipo_reg'),
+        'Permisos'=> $this->input->post('permisos'),
         'Estado' => 2
         );
       return $this->db->insert('usuarios', $data);
@@ -76,7 +76,7 @@ class User extends CI_Model {
       'Provincia' => $this->input->post('provincia'),  
       'CP' => $this->input->post('cp'), 
       'Pais' => $this->input->post('pais'),
-      'Permisos'=> $this->input->post('tipo_reg')
+      'Permisos'=> $this->input->post('permisos')
    );
    if($this->input->post('password') != "")
    {
